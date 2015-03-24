@@ -4,14 +4,22 @@
   max-width: 768px;
   margin: 0 auto;
   padding: 1em;
-  text-align: center;
   border-bottom: 1px solid #eee;
   background: #fff;
   letter-spacing: 0.05em;
 }
+.title h1 {
+  text-align: center;
+}
 
 section {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 1em;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  letter-spacing: 0.05em;
 }
 
 p { font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }

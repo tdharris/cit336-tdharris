@@ -1,6 +1,7 @@
 <?php 
     // Include all the database models to be used by index.php
     include 'models/navbar.php';
+    include 'models/url.php';
 
     // Create Database class
 	class Database {

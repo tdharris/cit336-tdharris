@@ -43,6 +43,12 @@ h3 {
     font-size: 3em;
     margin: 0;
 }
+.brandLink,
+.brandLink:hover {
+  color: #fff;
+  text-decoration: none;
+  background: rgb(61, 79, 93);
+}
 .brand-tagline {
     font-weight: 300;
     color: rgb(176, 202, 219);
