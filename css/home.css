@@ -1,0 +1,26 @@
+
+.title {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  letter-spacing: 0.05em;
+}
+
+section {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p { font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+li.pure-button {
+  margin: 2px;
+}
+
+pre {
+  padding: 1em;
+  border: 1px solid #eee;
+}
