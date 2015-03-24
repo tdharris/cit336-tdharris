@@ -1,9 +1,10 @@
 <?php
-// if (!$_SESSION) {
-//   session_start();
-// }
 
-// $navigation = $_SESSION['navigation'];
+	if (!$_SESSION) {
+	  session_start();
+	}
+	$navbar = $_SESSION['navbar'];
+
 ?>
 <!doctype html>
 <html lang="en">

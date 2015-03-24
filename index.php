@@ -1,13 +1,25 @@
 
 <?php 
 
-include 'models/db.php';
+/* ***************************************
+ * Create or access the session
+ * **************************************/
+  // TODO: session_start(): Cannot send session cache limiter - headers already sent...
+  // if(!isset($_SESSION)){
+  //   session_start();
+  // }
 
-$db = new Database;
+/* ***************************************
+ * Bring the model into scope
+ * **************************************/
+  require('models/db.php');
 
-// Build content
-$navbar = buildNav();
+/* ***************************************
+ * Build the navigation menu
+ * **************************************/
+  $navbar = buildNav();
+  $_SESSION['navbar'] = $navbar;
 
-include 'views/view.php';
+  include 'views/view.php';
 
 ?>

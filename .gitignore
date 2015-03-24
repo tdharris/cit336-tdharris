@@ -33,3 +33,7 @@ functionsexam/
 nbproject/
 phpexam/
 presentation/
+*.zip
+
+### MISC ###
+sftp-config.json
