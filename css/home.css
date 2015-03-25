@@ -4,12 +4,14 @@
   max-width: 768px;
   margin: 0 auto;
   padding: 1em;
-  border-bottom: 1px solid #eee;
+  /*border-bottom: 1px solid #eee;*/
   background: #fff;
   letter-spacing: 0.05em;
 }
 .title h1 {
   text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
 }
 
 section {
@@ -17,7 +19,7 @@ section {
   max-width: 768px;
   margin: 0 auto;
   padding: 1em;
-  border-bottom: 1px solid #eee;
+  /*border-bottom: 1px solid #eee;*/
   background: #fff;
   letter-spacing: 0.05em;
 }
@@ -31,4 +33,127 @@ li.pure-button {
 pre {
   padding: 1em;
   border: 1px solid #eee;
+}
+
+/*tdharris.net*/
+.controls + .portfolio + .mix {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.controls{
+  padding: 2%;
+  background: rgb(61, 79, 93);
+  color: #eee;
+}
+
+.controls label{
+  font-weight: 300;
+  margin: 0 .4em 0 0;
+}
+
+/*.controls button{
+  display: inline-block;
+  padding: .4em .8em;
+  background: #7f8c8d;
+  border: 0;
+  color: #ddd;
+  font-size: 16px;
+  font-weight: 300;
+  border-radius: 4px;
+  cursor: pointer;
+}*/
+
+button.active{
+  background: #59ABE3;
+}
+
+button:focus{
+  outline: 0 none;
+}
+
+button + label{
+  margin-left: 1em;
+}
+
+.portfolio{
+  padding: 2% 2% 0;
+  text-align: justify;
+  background: #ecf0f1;
+  -webkit-backface-visibility: hidden;
+}
+
+.portfolio .mix.webDev{
+  border-top: 2px solid #16a085;
+}
+
+.portfolio .mix.bash{
+  border-top: 2px solid #f1c40f;
+}
+
+.portfolio:after{
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+.portfolio .mix,
+.portfolio .gap{
+  display: inline-block;
+  width: 49%;
+}
+
+.portfolio .mix{
+  padding: 2%; 
+  text-align: left;
+  background: #ECECEC;
+  /*border: 1px solid #E4F1FE;*/
+  margin-bottom: 2%;
+  display: none;
+  overflow: hidden;
+}
+
+.portfolio .mix:before{
+  content: '';
+  display: inline-block;
+  /*padding-top: 60%;*/
+}
+
+@media all and (min-width: 420px){
+  .portfolio .mix,
+  .portfolio .gap{
+    width: 32%;
+  }
+}
+
+@media all and (min-width: 640px){
+  .portfolio .mix,
+  .portfolio .gap{
+    width: 48%;
+  }
+}
+
+#Portfolio .mix{
+  display: none;
+}
+
+.portfolio .mix h3 {
+  text-align:center;
+  font-weight: bold;
+}
+
+.portfolio .mix img {
+  max-height: 150px;
+  max-width: 100%;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
+.portfolio .mix:hover, .mix:hover > * {
+  background-color: #DADFE1;
+  cursor: pointer;
 }

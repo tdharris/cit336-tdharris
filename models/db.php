@@ -46,7 +46,7 @@
             $this->db = null;
         }
 
-        public function query($sql, $fetchmode = PDO::FETCH_BOTH) {
+        public function query($sql, $fetchmode = PDO::FETCH_CLASS) {
             // Connect to database if not already connected
             if(!$this->isConnected) { $this->Connect(); }
 
@@ -74,7 +74,7 @@
             }
             
         }
-
+        
 	} 
 
     $db = new Database;

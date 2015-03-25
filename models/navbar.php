@@ -2,14 +2,14 @@
 	
 	function buildNav() {
 		global $db;
-		// Get the navItems from the database
-		$navItems = $db->query("SELECT name FROM nav;", PDO::FETCH_COLUMN);
+		// Get the navItems from the database (name, href)
+		$navItems = $db->query("SELECT * FROM nav;");
 
 		// Build the navigation menu list
 		if(is_array($navItems)) {
 			$navigation = '<ul class="pure-menu-list">';
 			foreach ($navItems as $item) {
-				$navigation .= '<li class="pure-menu-item"><a href="?action=q&url=' . $item . '" class="pure-menu-link">' . $item . '</a></li>';
+				$navigation .= '<li class="pure-menu-item"><a href="?action=q&url=' . $item->href . '" class="pure-menu-link">' . $item->name . '</a></li>';
 			}
 			$navigation .= '</ul>';
 		} else {
