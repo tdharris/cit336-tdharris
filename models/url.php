@@ -15,6 +15,9 @@
 			 * Determine content based on request
 			 * **************************************/
 			switch($url_clean) {
+				/* ***************************************
+				 * Serve up AboutMe content
+				 * **************************************/
 		        case 'aboutme':
 		        	$content .= '<h1>About Me</h1>';
 
@@ -36,11 +39,19 @@
 		            	<a href="'.$about_me->githubURL.'" target="_blank"><img src="img/github-32.png"></a><br>
 		            	</div></p></section>';
 		            break;
+		        
+		        /* ***************************************
+				 * Serve up Contact content
+				 * **************************************/
 		        case 'contact':
 		        		$content .= '<h1>Contact</h1>';
 
 		        		$content .= "<p>So you wnna contact me?</p>";
 		        		break;
+
+		       	/* ***************************************
+				 * Serve up Portfolio content
+				 * **************************************/
 		       	case 'portfolio':
 		       			$content .= '<h1>Portfolio</h1>
 									<div class="controls">
@@ -48,12 +59,13 @@
 										<button class="filter pure-button" data-filter="all">All</button>
 										<button class="filter pure-button" data-filter=".webDev">WebDev</button>
 										<button class="filter pure-button" data-filter=".bash">Bash</button>
-										<label>Sort:</label>
-										<button class="sort pure-button" data-sort="myorder:asc">Asc</button>
-										<button class="sort pure-button" data-sort="myorder:desc">Desc</button>
 									</div>
 
 									<div id="Portfolio" class="portfolio">';
+
+									// <label>Sort:</label>
+									// <button class="sort pure-button" data-sort="myorder:asc">Asc</button>
+									// <button class="sort pure-button" data-sort="myorder:desc">Desc</button>
 
 		       			// Retrieve content from database (sortOrder, projectName, brief, description, githubURL)
 		       			$portfolio = $db->query("SELECT * from projects p 
@@ -64,12 +76,21 @@
 		       			// Generate content
 		       			// print_r($portfolio);
 		       			foreach ($portfolio as $item) {
-		       				$content .= '<div class="mix '.$item->category.'" data-myorder="'.$item->sortOrder.'"><img src="img/projects/'.$item->url.'"><h3>'.$item->projectName.'</h3><p>'.$item->brief.'</p></div>';
+		       				$content .= '<div class="mix '.$item->category.'" data-myorder="'.$item->sortOrder.'">'.
+		       							'<a href="?action=q&project='.$item->projectName.'">'.
+		       							'<img src="img/projects/'.$item->url.'">'.
+		       							'<h3>'.$item->projectName.'</h3>'.
+		       							'<p>'.$item->brief.'</p>'.
+		       							'</a></div>';
 		       			};
 
 		       			$content .= '<div class="gap"></div><div class="gap"></div></div>';
 		       			
 		       			break;
+
+		       	/* ***************************************
+				 * 404 - Page Not Found
+				 * **************************************/
 		        default: 
 		            echo "test";
 		      }

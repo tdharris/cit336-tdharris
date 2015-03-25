@@ -16,7 +16,7 @@
 
 section {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  max-width: 768px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 1em;
   /*border-bottom: 1px solid #eee;*/
@@ -52,18 +52,6 @@ pre {
   margin: 0 .4em 0 0;
 }
 
-/*.controls button{
-  display: inline-block;
-  padding: .4em .8em;
-  background: #7f8c8d;
-  border: 0;
-  color: #ddd;
-  font-size: 16px;
-  font-weight: 300;
-  border-radius: 4px;
-  cursor: pointer;
-}*/
-
 button.active{
   background: #59ABE3;
 }
@@ -81,6 +69,9 @@ button + label{
   text-align: justify;
   background: #ecf0f1;
   -webkit-backface-visibility: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .portfolio .mix.webDev{
@@ -99,7 +90,7 @@ button + label{
 .portfolio .mix,
 .portfolio .gap{
   display: inline-block;
-  width: 49%;
+  width: 32%;
 }
 
 .portfolio .mix{
@@ -112,24 +103,12 @@ button + label{
   overflow: hidden;
 }
 
+.portfolio .mix a { color: #000; }
+
 .portfolio .mix:before{
   content: '';
   display: inline-block;
   /*padding-top: 60%;*/
-}
-
-@media all and (min-width: 420px){
-  .portfolio .mix,
-  .portfolio .gap{
-    width: 32%;
-  }
-}
-
-@media all and (min-width: 640px){
-  .portfolio .mix,
-  .portfolio .gap{
-    width: 48%;
-  }
 }
 
 #Portfolio .mix{
@@ -142,7 +121,7 @@ button + label{
 }
 
 .portfolio .mix img {
-  max-height: 150px;
+  /*height: 100%;*/
   max-width: 100%;
   display:block;
   margin-left:auto;
@@ -153,7 +132,22 @@ button + label{
   -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 
-.portfolio .mix:hover, .mix:hover > * {
+.portfolio .mix:hover{
   background-color: #DADFE1;
-  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Flex box progressive enhancements: */
+.portfolio{
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+    -webkit-justify-content: space-between;
+  -webkit-align-content: flex-start;
+}
+
+@media all and (max-width: 768px){
+  .portfolio .mix,
+  .portfolio .gap{
+    width: 49%;
+  }
 }
