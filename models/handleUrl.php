@@ -59,6 +59,7 @@
 										<button class="filter pure-button" data-filter="all">All</button>
 										<button class="filter pure-button" data-filter=".webDev">WebDev</button>
 										<button class="filter pure-button" data-filter=".bash">Bash</button>
+										<button class="filter pure-button" data-filter=".java">Java</button>
 									</div>
 
 									<div id="Portfolio" class="portfolio">';
@@ -69,9 +70,9 @@
 
 		       			// Retrieve content from database (sortOrder, projectName, brief, description, githubURL)
 		       			$portfolio = $db->query("SELECT * from projects p 
-		       									LEFT JOIN images i ON p.projectID= i.projectID 
+		       									LEFT JOIN images i ON p.projectID = i.projectID 
 		       									WHERE i.featured IS NOT NULL
-		       									ORDER BY p.sortOrder;");
+		       									ORDER BY p.sortOrder ASC;");
 
 		       			// Generate content
 		       			// print_r($portfolio);

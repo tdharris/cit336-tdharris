@@ -1,7 +1,14 @@
 $(function(){
+
     $('#Portfolio').mixItUp({
 		load: {
-			sort: 'age:desc'
+			sort: 'myorder:asc'
 		}
-	});  
+	});
+
+	$('.slicky').slick({
+	  dots: true,
+	  speed: 500
+	});
+
 });

@@ -1,7 +1,7 @@
 
 .title {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  max-width: 768px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 1em;
   /*border-bottom: 1px solid #eee;*/
@@ -96,7 +96,7 @@ button + label{
 .portfolio .mix{
   padding: 2%; 
   text-align: left;
-  background: #ECECEC;
+  background: #DADFE1;
   /*border: 1px solid #E4F1FE;*/
   margin-bottom: 2%;
   display: none;
@@ -133,8 +133,15 @@ button + label{
 }
 
 .portfolio .mix:hover{
-  background-color: #DADFE1;
+  background-color: #ECECEC;
   text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  min-height: auto%;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 /* Flex box progressive enhancements: */
@@ -145,7 +152,13 @@ button + label{
   -webkit-align-content: flex-start;
 }
 
-@media all and (max-width: 768px){
+@media all and (max-width: 1366px){
+  .portfolio .mix,
+  .portfolio .gap{
+    width: 32%;
+  }
+}
+@media all and (max-width: 900px){
   .portfolio .mix,
   .portfolio .gap{
     width: 49%;
