@@ -32,6 +32,7 @@
 	          <li><a target="_blank" href="https://google.com/+TylerHarristdh" class="btn-social btn-outline google-plus"><i class="fa fa-fw fa-google-plus"></i></a></li>
 	          <li><a target="_blank" href="https://twitter.com/tdharris" class="btn-social btn-outline twitter"><i class="fa fa-fw fa-twitter"></i></a></li>
 	          <li><a target="_blank" href="https://www.linkedin.com/in/tylerdavidharris" class="btn-social btn-outline linkedin"><i class="fa fa-fw fa-linkedin"></i></a></li>
+	          <li><a target="_blank" href="https://github.com/tdharris" class="btn-social btn-outline github"><i class="fa fa-fw fa-github"></i></a></li>
 	        </ul>
 
 	        <div class="pure-menu">     

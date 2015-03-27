@@ -36,6 +36,31 @@ pre {
 }
 
 /*tdharris.net*/
+
+/*aboutMe*/
+.aboutMe {
+  margin-top:5%;
+}
+.aboutMe img {
+  max-width:50%;
+  -moz-border-radius: 10%;
+  -webkit-border-radius: 10%;
+  border-radius: 10%; /* future proofing */
+  -khtml-border-radius: 10%; /* for old Konqueror browsers */
+}
+
+.musician:hover {
+  background-color: yellow;
+}
+.coder:hover {
+  background-color: #22A7F0;
+}
+
+.playingSaxophone {
+  padding: 10% 10% 0 0;
+}
+
+
 .controls + .portfolio + .mix {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -158,9 +183,22 @@ img {
     width: 32%;
   }
 }
-@media all and (max-width: 900px){
+@media all and (max-width: 1080px){
   .portfolio .mix,
   .portfolio .gap{
     width: 49%;
   }
 }
+
+/* Fix brand-title */
+@media all and (max-width: 840px){
+  .brand-title {
+    font-size: 2.5em;
+  }
+}
+@media all and (max-width: 767px){
+  .brand-title {
+    font-size: 3em;
+  }
+}
+

@@ -14,16 +14,18 @@ CREATE TABLE nav (
 );
 
 CREATE TABLE about (
-	aboutID		INT				NOT NULL	AUTO_INCREMENT,
-	resumeURL	VARCHAR(255)	NOT NULL,
-	email		VARCHAR(255)	NOT NULL,
-	phone		VARCHAR(255)	NOT NULL,
-	brief  		LONGTEXT		NOT NULL,
-	skillset 	VARCHAR(255)	NOT NULL,
-	facebookURL	VARCHAR(255)				DEFAULT NULL,
-	twitterURL 	VARCHAR(255)				DEFAULT NULL,
-	linkedinURL VARCHAR(255)				DEFAULT NULL,
-	githubURL 	VARCHAR(255)				DEFAULT NULL,
+	aboutID				INT				NOT NULL	AUTO_INCREMENT,
+	resumeURL			VARCHAR(255)	NOT NULL,
+	email				VARCHAR(255)	NOT NULL,
+	phone				VARCHAR(255)	NOT NULL,
+	coderBrief  		LONGTEXT		NOT NULL,
+	musicianBrief  		LONGTEXT		NOT NULL,
+	musicPic			VARCHAR(255)				DEFAULT NULL,
+	skillset 			VARCHAR(255)	NOT NULL,
+	facebookURL			VARCHAR(255)				DEFAULT NULL,
+	twitterURL 			VARCHAR(255)				DEFAULT NULL,
+	linkedinURL 		VARCHAR(255)				DEFAULT NULL,
+	githubURL 			VARCHAR(255)				DEFAULT NULL,
 	PRIMARY KEY (aboutID)
 );
 
@@ -61,17 +63,22 @@ INSERT INTO nav (navID, name, href) VALUES
 (2, 'Portfolio', 'portfolio'),
 (3, 'Contact', 'contact');
 
-INSERT INTO about (aboutID, email, phone, resumeURL, facebookURL, twitterURL, linkedinURL, githubURL, skillset, brief) VALUES
+INSERT INTO about (aboutID, email, phone, resumeURL, facebookURL, twitterURL, linkedinURL, githubURL, skillset, coderBrief, musicianBrief, musicPic) VALUES
 (1, 'tylerdavidharris@gmail.com', '(530) 200-1919', 'http://goo.gl/89Luq2', 
 	'https://www.facebook.com/tylerdavidharris',
 	'https://twitter.com/tdharris',
 	'https://www.linkedin.com/in/tylerdavidharris',
 	'https://github.com/tdharris',
-	'Git, JavaScript, Node.js, HTML, CSS, MySQL, Oracle, PSQL, Bash, SuSE Linux.', 'I have a lot of technical experience and a passion for learning new technologies. My resume shows my interest in web-development, particularly with Node.js. I have 3 years of professional development experience and will be graduating this April with a Bachelor of Science degree in Computer Information Technology. I’ve worked on projects in Java, JavaScript, CSS and HTML. I have built a full web-application with node.js and angular that provides notifications via email and text for on-call engineers. I have likewise created a public administration tool for Novell GroupWise Mobility Service Admins, written primarily in Bash, which has been featured in a 3rd-party publication. I’m an Author and Publisher of 240+ Technical Information Documents for Knowledge-Centered Support (KCS) and was awarded “Reaching New Heights of Knowledge” as recognition of my outstanding and exemplary performance. I am a leader on my team and help them as a KCS Super User to publish Technical Information Documents and become Authors themselves. I am quick to learn new things and am interested in web-development and Node.js.');
+	'Git, JavaScript, Node.js, HTML, CSS, MySQL, Oracle, PSQL, Bash, SuSE Linux.', 'I have a lot of technical experience and a passion for learning new technologies. My resume shows my interest in web-development, particularly with Node.js. I have 3 years of professional development experience and will be graduating this April with a Bachelor of Science degree in Computer Information Technology. I’ve worked on projects in Java, JavaScript, CSS and HTML. I have built a full web-application with node.js and angular that provides notifications via email and text for on-call engineers. I have likewise created a public administration tool for Novell GroupWise Mobility Service Admins, written primarily in Bash, which has been featured in a 3rd-party publication. I’m an Author and Publisher of 240+ Technical Information Documents for Knowledge-Centered Support (KCS) and was awarded “Reaching New Heights of Knowledge” as recognition of my outstanding and exemplary performance. I am a leader on my team and help them as a KCS Super User to publish Technical Information Documents and become Authors themselves. I am quick to learn new things and am interested in web-development and Node.js.<p>Be sure to checkout <a href="http://tdharris.net/?action=q&url=portfolio">my portfolio</a>!',
+	'<p>I love Jazz! I have been playing the saxophone since middle school and have been highly involved in the Jazz Department while in College. I consider myself to have double majored, as I have taken Major lessons every year, received Music scholarships, been the 1st chair in the leading jazz ensemble big band and jazz combo every semester, which toured the Dominican Republic, Puerto Rico and New Mexico and participated in Hamp\'s Club by winning the Jazz Improvisation Solo award at Lionel Hampton Jazz Festival. This participation in the arts genuinely helps my creativity.</p>
+	<p>In a typical jazz group the musicians first play the main melody or theme, then one or more musicians (piano, trumpet, sax, bass, etc.) take turns improvising variations based on the main melody. At the end the band returns to the original theme or melody. A jazz musician is creating art every time he or she plays and the same piece of music will sound different, even if it is played by the same musicians. You have to stay connected on the band stand with what people are communicating to you. Since this music is highly improvised, you have to stay connected and present, listening intently to all those around you, as it\'s about making music together.</p>
+	<p>"Jazz is not an assembly line of regurgitation, but a creative passionate journey of self-realization/expression where our goal is to know all people in all situations as we know ourselves." ~Anonymous</p>
+	<p><i>"This music is a sure path to self realization."</i> ~John McNeil</p>',
+	'playingSaxophone.jpg');
 
 -- Project: qNotify
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(1, 4, 'qNotify', 'webDev','https://github.com/tdharris/qNotify',
+(1, 2, 'qNotify', 'webDev','https://github.com/tdharris/qNotify',
 	'Text/email notification web app built with Node.js and Express.js for on-call engineers.',
 	'<p>qNotify is a single-page app (SPA) permitting Novell engineers to sign-in and receive qmon texts and email notifications for their appropriate queues.</p><p>qNotify is a web-application that is built on Node.js, which is a platform built on Chrome\'s JavaScript runtime for building fast, scalable network applications. I used nodejs and a module called Express.js (MEAN stack) instead of apache, tomcat (LAMP stack).</p>');
 
@@ -86,9 +93,30 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: qNinja
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(2, 5, 'qNinja', 'webDev','https://github.com/tdharris/qNinja',
-	'Engineer’s workload management web app built with Node.js and Express.js.',
-	'<p>qNotify is a single-page app (SPA) permitting Novell engineers to sign-in and receive qmon texts and email notifications for their appropriate queues.</p><p>qNotify is a web-application that is built on Node.js, which is a platform built on Chrome\'s JavaScript runtime for building fast, scalable network applications. I used nodejs and a module called Express.js (MEAN stack) instead of apache, tomcat (LAMP stack).</p>');
+(2, 1, 'qNinja', 'webDev','https://github.com/tdharris/qNinja',
+	'Engineer’s workload management web app built with Angular, Node and Express.',
+	'<p>Engineer’s workload management web app built with AngularJS, NodeJS and ExpressJS.</p>
+	<p>Often times we would have customers with similar issues or we\'d need to send a similar email regarding follow-up. Normally, this would be done one at a time in a mail client, but qNinja allows engineers to send the same email message to various customers while still generating a separate email for each one (unique subject and recipients). It includes the necessary tags in the email to be included in the database as well, so it\'s as if a regular email was sent.</p>
+	<p>A Novell Engineer navigates to https://qNinja.lab.novell.com and follow these steps: 
+		<ul>
+			<li>Enters credentials and selects \'Remember Me\' for HTML5 storage of credentials and signature.</li>
+			<li>Selects Refresh to pull in data regarding their Service Requests populated in the bottom panel.</li>
+			<li>Select several to send emails to (perhaps change the email list, sort columns, etc.)</li>
+			<li>Create the Content and Signature of the email. <br><i>Note: Snippets can be selected and inserted from the dropdown</i></li>
+			<li>Select Preview for a dialog that displays what the email will look like.</li>
+			<li>Click Send. A notification box is displayed reporting that a request was received by the server and queued up for processing.</li>
+		</ul></p>
+	<p>The server now does these steps:
+		<ul>
+			<li>The server receives the request to send emails, and queues it up for the taskHandler.</li>
+			<li>The taskHandler will process 3 of these requests at a time as to not overload the Mail Transport (async library).</li>
+			<li>First, all the recipients are validated and any non-emails are discarded.</li>
+			<li>A mail item is then created for transport and sent.</li>
+			<li>The result of this send (code response of the SMTP server) is appended to the task\'s report.</li>
+			<li>This process is then repeated for all email items that were in the request.</li>
+			<li>Then a report is emailed to the Novell User detailing the results.</li>
+		</ul>
+	</p>');
 
 INSERT INTO images (projectID, featured, url) VALUES
 (2, '','qninja-logo.png');
@@ -147,7 +175,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: qDash
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(6, 6, 'qDash', 'webDev','',
+(6, 3, 'qDash', 'webDev','',
 	'An Engineer\'s Dashboard. Panels for queues, stats, and links for launching SSH, VNC, RDP and Web Console.',
 	'<p>An Engineer\'s Dashboard. Bootstrap-styled sites containing panels for queues, stats, and links for launching SSH, VNC, RDP and Web Console sessions to test environments.</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -159,7 +187,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: myNovellApp
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(7, 3, 'myNovellApp', 'webDev','https://github.com/tdharris/myNovellApp.git',
+(7, 4, 'myNovellApp', 'webDev','https://github.com/tdharris/myNovellApp.git',
 	'My launcher page for qNotify, qNinja, qDash (Node.js wrapper app).',
 	'<p>My launcher page for qNotify, qNinja, qDash (Node.js wrapper app).</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -179,7 +207,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: pocketBook
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(9, 2, 'pocketBook', 'webDev','https://github.com/tdharris/pocketBook',
+(9, 6, 'pocketBook', 'webDev','https://github.com/tdharris/pocketBook',
 	'Single Page App (SPA) for mobile to store receipts, pictures and tag them.',
 	'<p>Single Page Mobile App (SPA) to store receipts and pictures and tag them.</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -197,7 +225,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: elephant
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(10, 1, 'elephant', 'java','https://github.com/tdharris/elephant',
+(10, 5, 'elephant', 'java','https://github.com/tdharris/elephant',
 	'Java server and client (Android mobile application) demonstration.',
 	'<p>Java based server and mobile application development. Experimenting with several technologies and methodologies:<ul>
 			<li>Java Collections</li>
