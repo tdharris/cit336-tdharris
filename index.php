@@ -1,6 +1,11 @@
 
 <?php 
 
+    // Include all the database models to be used by this main Controller
+    include 'controllers/navbar.php';
+    include 'controllers/handleUrl.php';
+    include 'controllers/project.php';
+
 /* ***************************************
  * Create or access the session
  * **************************************/

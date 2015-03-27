@@ -9,7 +9,7 @@
 		if(is_array($navItems)) {
 			$navigation = '<ul class="pure-menu-list">';
 			foreach ($navItems as $item) {
-				$navigation .= '<li class="pure-menu-item"><a href="?action=q&url=' . $item->href . '" class="pure-menu-link">' . $item->name . '</a></li>';
+				$navigation .= '<li class="pure-menu-item"><a href="?action=q&amp;url=' . $item->href . '" class="pure-menu-link">' . $item->name . '</a></li>';
 			}
 			$navigation .= '</ul>';
 		} else {

@@ -20,8 +20,8 @@
 				 * **************************************/
 		        case 'aboutme':
 		        	$content .= '<h1>About Me</h1>';
-		        	$content .= '<div class="aboutMe animated fadeIn"><a href="?action=q&url=coder"><img class="coder" src="/img/coder.png"></a>';
-		        	$content .= '<a href="?action=q&url=musician"><img class="musician" src="/img/musician.png"></a></div></section>';
+		        	$content .= '<div class="aboutMe animated fadeIn"><a href="?action=q&amp;url=coder"><img class="coder" src="/img/coder.png"></a>';
+		        	$content .= '<a href="?action=q&amp;url=musician"><img class="musician" src="/img/musician.png"></a></div></section>';
 		            break;
 		        case 'coder':
 		        	$content .= '<h1>&lt;coder&gt;</h1>';
@@ -97,7 +97,7 @@
 		       			// print_r($portfolio);
 		       			foreach ($portfolio as $item) {
 		       				$content .= '<div class="mix '.$item->category.'" data-myorder="'.$item->sortOrder.'">'.
-		       							'<a href="?action=q&project='.$item->projectName.'">'.
+		       							'<a href="?action=q&amp;project='.$item->projectName.'">'.
 		       							'<img src="img/projects/'.$item->url.'">'.
 		       							'<h3>'.$item->projectName.'</h3>'.
 		       							'<p>'.$item->brief.'</p>'.

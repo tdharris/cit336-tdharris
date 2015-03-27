@@ -1,5 +1,5 @@
 <!-- Yahoo will deliver each of the small css files in a single request by using the & symbol like below -->
-<link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&pure/0.6.0/pure-min.css&pure/0.6.0/grids-responsive-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&amp;pure/0.6.0/pure-min.css&amp;pure/0.6.0/grids-responsive-min.css">
   
 <link rel="stylesheet" href="css/code-themes/dreamweaver.css">
 <link rel="stylesheet" href="css/animate.css">

@@ -69,7 +69,14 @@ INSERT INTO about (aboutID, email, phone, resumeURL, facebookURL, twitterURL, li
 	'https://twitter.com/tdharris',
 	'https://www.linkedin.com/in/tylerdavidharris',
 	'https://github.com/tdharris',
-	'Git, JavaScript, Node.js, HTML, CSS, MySQL, Oracle, PSQL, Bash, SuSE Linux.', 'I have a lot of technical experience and a passion for learning new technologies. My resume shows my interest in web-development, particularly with Node.js. I have 3 years of professional development experience and will be graduating this April with a Bachelor of Science degree in Computer Information Technology. I’ve worked on projects in Java, JavaScript, CSS and HTML. I have built a full web-application with node.js and angular that provides notifications via email and text for on-call engineers. I have likewise created a public administration tool for Novell GroupWise Mobility Service Admins, written primarily in Bash, which has been featured in a 3rd-party publication. I’m an Author and Publisher of 240+ Technical Information Documents for Knowledge-Centered Support (KCS) and was awarded “Reaching New Heights of Knowledge” as recognition of my outstanding and exemplary performance. I am a leader on my team and help them as a KCS Super User to publish Technical Information Documents and become Authors themselves. I am quick to learn new things and am interested in web-development and Node.js.<p>Be sure to checkout <a href="http://tdharris.net/?action=q&url=portfolio">my portfolio</a>!',
+	'Git, JavaScript, Node.js, HTML, CSS, MySQL, Oracle, PSQL, Bash, SuSE Linux. <br><br> Be sure to checkout <a href="http://tdharris.net/?action=q&url=portfolio">my portfolio</a>!', 'I have a variety of technical experience and a passion for learning new technologies. My resume shows my interest in web-development, particularly with Node.js. I have 3 years of professional development experience and will be graduating this April with a Bachelor of Science degree in Computer Information Technology. I’ve worked on projects in Java, JavaScript, CSS and HTML:
+	<ul>
+		<li>Built a full web-application with node.js and angular that provides notifications via email and text for on-call engineers.</li>
+		<li>Created a public administration tool for Novell GroupWise Mobility Service Admins, written primarily in Bash, which has been featured in a 3rd-party publication.</li>
+		<li>Author and Publisher of 250+ Technical Information Documents for Knowledge-Centered Support (KCS) and was awarded “Reaching New Heights of Knowledge” as recognition of my outstanding and exemplary performance.</li>
+		<li>Leader on my team and help them as a KCS Super User to publish Technical Information Documents and become Authors themselves.</li>
+	</ul>
+	<p>I am quick to learn new things and am interested in front-end web-development and Node.js.</p>',
 	'<p>I love Jazz! I have been playing the saxophone since middle school and have been highly involved in the Jazz Department while in College. I consider myself to have double majored, as I have taken Major lessons every year, received Music scholarships, been the 1st chair in the leading jazz ensemble big band and jazz combo every semester, which toured the Dominican Republic, Puerto Rico and New Mexico and participated in Hamp\'s Club by winning the Jazz Improvisation Solo award at Lionel Hampton Jazz Festival. This participation in the arts genuinely helps my creativity.</p>
 	<p>In a typical jazz group the musicians first play the main melody or theme, then one or more musicians (piano, trumpet, sax, bass, etc.) take turns improvising variations based on the main melody. At the end the band returns to the original theme or melody. A jazz musician is creating art every time he or she plays and the same piece of music will sound different, even if it is played by the same musicians. You have to stay connected on the band stand with what people are communicating to you. Since this music is highly improvised, you have to stay connected and present, listening intently to all those around you, as it\'s about making music together.</p>
 	<p>"Jazz is not an assembly line of regurgitation, but a creative passionate journey of self-realization/expression where our goal is to know all people in all situations as we know ourselves." ~Anonymous</p>
@@ -131,7 +138,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: dsapp
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(3, 8, 'dsapp.sh', 'bash','https://github.com/tdharris/dsapp',
+(3, 9, 'dsapp.sh', 'bash','https://github.com/tdharris/dsapp',
 	'A server-side tool aimed to help troubleshoot and solve common issues with Novell GroupWise Mobility Service.',
 	'<p>qNotify is a single-page app (SPA) permitting Novell engineers to sign-in and receive qmon texts and email notifications for their appropriate queues.</p><p>qNotify is a web-application that is built on Node.js, which is a platform built on Chrome\'s JavaScript runtime for building fast, scalable network applications. I used nodejs and a module called Express.js (MEAN stack) instead of apache, tomcat (LAMP stack).</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -155,7 +162,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: certs.sh
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(4, 10, 'certs.sh', 'bash','https://github.com/tdharris/bashScripts/blob/master/certs/certs.sh',
+(4, 11, 'certs.sh', 'bash','https://github.com/tdharris/bashScripts/blob/master/certs/certs.sh',
 	'Utility for SSL Certificate creation, signing and verification.',
 	'<p>Utility for SSL Certificate creation, signing and verification.</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -165,7 +172,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: nftp.sh
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(5, 11, 'nftp.sh', 'bash','https://github.com/tdharris/bashScripts/blob/master/nftp/nftp.sh',
+(5, 12, 'nftp.sh', 'bash','https://github.com/tdharris/bashScripts/blob/master/nftp/nftp.sh',
 	'Sync a local directory with FTP.',
 	'<p>Sync a local directory with FTP.</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -197,7 +204,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: nts-directoryMigration.sh
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(8, 9, 'nts-directoryMigration.sh', 'bash','https://github.com/tdharris/bashScripts/tree/master/nts-directoryMigration.sh',
+(8, 10, 'nts-directoryMigration.sh', 'bash','https://github.com/tdharris/bashScripts/tree/master/nts-directoryMigration.sh',
 	'Created for Novell Filr to help facilitate multi-directional migrations between eDirectory and AD.',
 	'<p>NTS Directory Services Migration Utility Created to help facilitate migrations from AD to eDirectory, eDirectory to AD. Queries LDAP server, updates necessary attributes for ALL Filr MySQL users.</p><p>This is based on CN, the user\'s name. Finds all users at specified base search and below. If LDAP returns a user that is found in MySQL based on their CN/username, it will be updated.</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -270,4 +277,18 @@ INSERT INTO images (projectID, featured, url) VALUES
 INSERT INTO images (projectID, url) VALUES
 (11, 'tdharris-1.png');
 
--- next sortOrder is 12
+-- Project: tmessenger
+INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
+(12, 8, 'tmessenger', 'webDev','https://github.com/tdharris/tmessenger',
+	'An example web-chat application build on NodeJS and Socket.IO.',
+	'<p>An example web-chat application build on NodeJS and Socket.IO. Built for a Java class to demonstrate how many fewer lines of code were required to build the same application.</p>');
+INSERT INTO images (projectID, featured, url) VALUES
+(12, '','tmessenger.jpg');
+INSERT INTO images (projectID, url) VALUES
+(12, 'tmessenger.jpg');
+INSERT INTO images (projectID, url) VALUES
+(12, 'tmessenger-2.jpg');
+
+
+
+-- next sortOrder is 13

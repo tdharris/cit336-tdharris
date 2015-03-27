@@ -37,3 +37,6 @@ presentation/
 
 ### MISC ###
 sftp-config.json
+*bootstrap*
+code-themes/
+rainbow-custom.min.js
