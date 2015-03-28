@@ -3,7 +3,7 @@
 	function buildNav() {
 		global $db;
 		// Get the navItems from the database (name, href)
-		$navItems = $db->query("SELECT * FROM nav;");
+		$navItems = $db->getNav();
 
 		// Build the navigation menu list
 		if(is_array($navItems)) {

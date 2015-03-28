@@ -26,8 +26,7 @@
 		        case 'coder':
 		        	$content .= '<h1>&lt;coder&gt;</h1>';
 		       		// Retrieve from database (aboutID, email, phone, resumeURL, coderBrief, musicianBrief)
-		        	$about_me = $db->query("SELECT * FROM about LIMIT 1;");
-		        	$about_me = $about_me[0];
+		        	$about_me = $db->getAboutMe();
 
 		        	// Generate content
 		            $content .= '<p>' . $about_me->coderBrief . '</p>';
@@ -37,8 +36,7 @@
 		        case 'musician':
 		        	$content .= '<h1>Musician</h1>';
 		        	// Retrieve from database (aboutID, email, phone, resumeURL, coderBrief, musicianBrief, musicPic)
-		        	$about_me = $db->query("SELECT * FROM about LIMIT 1;");
-		        	$about_me = $about_me[0];
+		        	$about_me = $db->getAboutMe();
 
 		        	// Generate content
 		        	$content .= '<div class="pure-u-1-4"><img class="playingSaxophone" src="/img/'.$about_me->musicPic.'"></div>';
@@ -52,8 +50,7 @@
 		        case 'contact':
 		        		$content .= '<h1>Contact</h1>';
 		        		// Retrieve from database (aboutID, email, phone, resumeURL, coderBrief, musicianBrief)
-			        	$about_me = $db->query("SELECT * FROM about LIMIT 1;");
-			        	$about_me = $about_me[0];
+			        	$about_me = $db->getAboutMe();
 
 			        	// Generate content
 		        		$phone_clean = preg_replace("/[^0-9]/", "", $phone);
@@ -88,10 +85,7 @@
 									// <button class="sort pure-button" data-sort="myorder:desc">Desc</button>
 
 		       			// Retrieve content from database (sortOrder, projectName, brief, description, githubURL)
-		       			$portfolio = $db->query("SELECT * from projects p 
-		       									LEFT JOIN images i ON p.projectID = i.projectID 
-		       									WHERE i.featured IS NOT NULL
-		       									ORDER BY p.sortOrder ASC;");
+		       			$portfolio = $db->getPortfolio();
 
 		       			// Generate content
 		       			// print_r($portfolio);

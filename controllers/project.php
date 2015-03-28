@@ -6,11 +6,8 @@
 
 		// projects: projectID, sortOrder, projectName, category, brief, description, githubURL
 		// images: imageID, projectID, aboutID, url, featured
-		$project = $db->query('SELECT * FROM projects WHERE projectName=\''.$pj.'\';')[0];
-		$images = $db->query('SELECT i.url FROM images i
-								RIGHT OUTER JOIN projects p ON i.projectID = p.projectID
-								WHERE i.projectID = '.$project->projectID.
-								' AND i.featured IS NULL', PDO::FETCH_ASSOC);
+		$project = $db->getProject($pj);
+		$images = $db->getUnfeaturedImages($project->projectID);
 
 		$content .= '<h1>'.$project->projectName.'</h1>';
 		$content .= '<div class=\'slicky\'>';
