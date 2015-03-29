@@ -38,15 +38,21 @@
 /* ***************************************
  * Determine type of request (url or project)
  * **************************************/
-  if ($action == 'q') {
-    if(isset($_GET['url'])) {
-      $url = $_GET['url'];
-      $content = handleURL($url);
-    } elseif (isset($_GET['project'])) {
-      $project = $_GET['project'];
-      $content = getProject($project);
-    }
-  };
+  switch($action) {
+    case 'q':
+      if(isset($_GET['url'])) {
+        $url = $_GET['url'];
+        $content = handleURL($url);
+      } elseif (isset($_GET['project'])) {
+        $project = $_GET['project'];
+        $content = getProject($project);
+      }
+      break;
+
+    case 'p':
+      // hmm..
+      break;
+  }
 
   include 'views/view.php';
 

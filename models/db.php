@@ -73,7 +73,7 @@
                 $statement = strtolower(explode(" ", $sql)[0]);
 
                 if ($statement === 'select' || $statement === 'show') {
-                return $this->stmt->fetchAll($fetchmode);
+                    return $this->stmt->fetchAll($fetchmode);
                 }
                 elseif ( $statement === 'insert' ||  $statement === 'update' || $statement === 'delete' ) {
                     return $this->stmt->rowCount();   
@@ -105,7 +105,6 @@
                 }
             }
         }
-
 
         /* ***************************************
          * Models for table interactions
