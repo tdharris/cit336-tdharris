@@ -10,5 +10,8 @@ $(function(){
 	  dots: true,
 	  speed: 500
 	});
+	
+	var dz_addPics = new Dropzone("div#addPics", { url: "upload.php"});
+	var dz_editPics = new Dropzone("div#editPics", { url: "upload.php"});
 
 });

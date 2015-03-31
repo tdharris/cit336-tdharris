@@ -6,5 +6,8 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
 <script src="js/spin.min.js"></script>
 <script src="js/sendMail.js"></script>
+<script src="js/login.js"></script>
+<script src="js/admin.js"></script>
 <script src="js/toastr.min.js"></script>
+<script src="js/dropzone.js"></script>
 <script src="js/tdharris.js"></script>

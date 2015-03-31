@@ -1,20 +1,15 @@
-<?php
-
-	if (!$_SESSION) {
-	  session_start();
-	}
-	$navbar = $_SESSION['navbar'];
-
-?>
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=medium-dpi" />
   <meta name="description" content="A showcase of projects by Tyler Harris">
 
   <title>tdharris</title>
   <?php include 'snippets/styles.php';?>
+  <?php if ($_SERVER[REQUEST_URI] == '/') {?>
+  	<link rel="stylesheet" href="css/big.css"/> 
+  	<?php };?>
 
 </head>
 <body>

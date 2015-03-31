@@ -2,7 +2,7 @@
 use tdharris_showcase;
 
 -- Drops existing tables prior to creating or recreating the tables
-DROP TABLE IF EXISTS nav, about, projects, images;
+DROP TABLE IF EXISTS nav, about, projects, images, admins;
 
 -- create the tables for the database 
 CREATE TABLE nav (
@@ -31,7 +31,7 @@ CREATE TABLE about (
 
 CREATE TABLE projects (
 	projectID	INT				NOT NULL	AUTO_INCREMENT,
-	sortOrder	INT				NOT NULL,
+	sortOrder	INT							DEFAULT NULL,
 	projectName VARCHAR(255)	NOT NULL,
 	category	VARCHAR(25)		NOT NULL,
 	brief		VARCHAR(255)	NOT NULL,
@@ -57,11 +57,24 @@ CREATE TABLE images (
 		ON DELETE CASCADE
 );
 
+-- Admins
+CREATE TABLE admins (
+	adminID			INT				NOT NULL	AUTO_INCREMENT,
+	userID      	VARCHAR(255)	NOT NULL,
+	hash			VARCHAR(255)				DEFAULT NULL,
+	PRIMARY KEY (adminID),
+	UNIQUE INDEX name (userID)
+);
+
 -- Insert data into the tables
 INSERT INTO nav (navID, name, href) VALUES
 (1, 'About Me', 'aboutme'),
 (2, 'Portfolio', 'portfolio'),
-(3, 'Contact', 'contact');
+(3, 'Contact', 'contact'),
+(4, 'Admin', 'login');
+
+INSERT INTO admins (adminID, userID, hash) VALUES
+(1, 'admin', '$2a$10$Vb1PSvUT7OAhMle.gf6xv.bQvhkmBm48EVg21UdXktyDbBtwpRvpq');
 
 INSERT INTO about (aboutID, email, phone, resumeURL, facebookURL, twitterURL, linkedinURL, githubURL, skillset, coderBrief, musicianBrief, musicPic) VALUES
 (1, 'tylerdavidharris@gmail.com', '(530) 200-1919', 'http://goo.gl/89Luq2', 
@@ -289,6 +302,37 @@ INSERT INTO images (projectID, url) VALUES
 INSERT INTO images (projectID, url) VALUES
 (12, 'tmessenger-2.jpg');
 
+-- Project: checkServices.sh
+INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
+(13, 13, 'checkServices.sh', 'bash','https://github.com/tdharris/bashScripts/tree/master/checkServices',
+	'Alert Notification Service for Mobility Administration',
+	'<p>Alert Notification System for DataSync/Mobility Administration</p>
+	<p>Notification service if any DataSync services/connectors go offline. The script restarts the services if any are found to be in a dead/unused state and sends an email to the administrator defined in the script file. The notification email contains the following information:</p>
+	<ul>
+		<li>hostname of server</li>
+		<li>date/time when services were found offline</li>
+		<li>the list of services found offline</li>
+		<li>status of services after a restart attempt</li>
+		<li>the current log levels</li>
+		<li>an attachment with a copy of all the logs and other server information</li>
+	</ul>
+	<p>Running the script manually displays the following and will appear in the notification email:</p>
+	<pre>
+		Checking for DataSync Config Engine:		running
+		Checking for DataSync Web Admin:			running
+		Checking for DataSync Connector Manager:	running
+		Checking for DataSync Engine:				running
+		Mobility Connector listening on port 443:	true
+		GroupWise Connector listening on port 4500: true
+	</pre>
+	<p>When implemented with crontab, the script can be set to run every hour, for example. This allows an administrator to be notified of a failure before users complain. Edit the script file and replace <a href="mailto:email@address.com">email@address.com</a> with the desired administrator’s email. You can likewise configure a list of email address by placing them in single quotes separated by a comma and a space – ‘email1, email2, email3′</p>
+	<p>To run the script regularly with crontab, just place the script file into /etc/cron.hourly to run hourly or /etc/cron.daily to run daily. Custom definitions can be made by editing the crontab file manually:</p>
+	<pre>crontab -e</pre>
+	<p>An example of running the script every 30 minutes:</p>
+	<pre>0 30 * * * /root/scripts/checkServices.sh</pre>');
+INSERT INTO images (projectID, featured, url) VALUES
+(13, '','checkServices.jpg');
+INSERT INTO images (projectID, url) VALUES
+(13, 'checkServices.jpg');
 
-
--- next sortOrder is 13
+-- next sortOrder is 14

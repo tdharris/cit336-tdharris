@@ -2,6 +2,7 @@
 	
 	function buildNav() {
 		global $db;
+
 		// Get the navItems from the database (name, href)
 		$navItems = $db->getNav();
 

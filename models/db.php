@@ -3,14 +3,15 @@
     /* ***************************************
      * Create Database Class
      * **************************************/
-	class Database {
+
+    class Database {
         
         private $host = "showcase.tdharris.net";
         private $user = "tdharris_admin"; 
         private $pass = "mylittlesecret"; 
         private $dbname = "tdharris_showcase";
  
-	    public $db;
+        public $db;
         private $isConnected = false;
 
         private $stmt;
@@ -36,7 +37,10 @@
                 $this -> isConnected = true;
             } catch (PDOException $e) {
                 $error_message = $e->getMessage();
-                include 'error.php';
+                http_response_code(500);
+                header('Content-Type: application/json; charset=UTF-8');
+                echo json_encode($error_message);
+                // include 'error.php';
                 exit;
             }
         }
@@ -51,6 +55,7 @@
             if(!$this->isConnected) { $this->Connect(); }
 
              try {
+                $this->parameters = array();
                 // Prepare query
                 $this->stmt = $this->db->prepare($sql);
                
@@ -83,7 +88,10 @@
                 }
             } catch(PDOException $e) {
                 $error_message = $e->getMessage();
-                include 'error.php';
+                http_response_code(500);
+                header('Content-Type: application/json; charset=UTF-8');
+                echo json_encode($error_message);
+                // include 'error.php';
                 exit;
             }
             
@@ -117,6 +125,9 @@
             return $this->query("SELECT * FROM about LIMIT 1;")[0];
         }
 
+         /* ***************************************
+         *  Portfolio / Projects
+         * **************************************/
         public function getPortfolio() {
             return $this->query("SELECT * from projects p 
                                     LEFT JOIN images i ON p.projectID = i.projectID 
@@ -124,8 +135,72 @@
                                     ORDER BY p.sortOrder ASC;");
         }
 
+        public function addProject($projectName, $category, $githubURL, $brief, $description, $images) {
+            if(isset($projectName, $category, $githubURL, $brief, $description, $images)) {
+                // addProject
+                $this->query("INSERT INTO projects 
+                                (projectName, category, githubURL, brief, description) VALUES 
+                                (:projectName, :category, :githubURL, :brief, :description);",
+                                array("projectName"=>$projectName, "category"=>$category, "githubURL"=>$githubURL,
+                                    "brief"=>$brief, "description"=>$description));
+                
+                // get projectID
+                $projectID = $this->getProject($projectName)->projectID;
+
+                // addImages
+                if(!empty($images)) {
+                    $this->addImages($projectID, $images);
+                }
+
+            }
+            
+        }
+
+        public function deleteProject($projectID) {
+            if(isset($projectID)) {
+                $this->deleteImagesByProject($projectID);
+                $this->query("DELETE FROM projects
+                                WHERE projectID = :projectID;", array("projectID"=>$projectID));
+            }
+        }
+
         public function getProject($projectName) {
             return $this->query('SELECT * FROM projects WHERE projectName=\''.$projectName.'\';')[0];
+            // return $this->query("SELECT * FROM projects WHERE projectName = :projectName;",
+                                        // array("projectName"=>$projectName))[0];
+        }
+
+        public function getProjectList() {
+            return $this->query("SELECT projectName from projects ORDER BY sortOrder ASC;", null, PDO::FETCH_ASSOC);
+        }
+
+         /* ***************************************
+         *  Images
+         * **************************************/
+        public function addImages($projectID, $images) {
+            // $images = ['url', '', '']; 
+            if (is_array($images)) {
+                // Insert first img as a featured img
+                $featuredImg = array_shift($images);
+
+                $this->query("INSERT INTO images (projectID, featured, url) 
+                                VALUES (:projectID, '', :url);",
+                                    array("projectID"=>$projectID, "url"=>$featuredImg));
+
+                // Insert any other images
+                foreach ($images as $img) {
+                    $this->query("INSERT INTO images (projectID, url) VALUES
+                                    (:projectID, :url);",
+                                    array("projectID"=>$projectID, "url"=>$img));
+                };
+                
+            };
+            
+        }
+
+        public function deleteImagesByProject($projectID) {
+            if (isset($projectID)) return $this->query("DELETE FROM images
+                                                            WHERE projectID = :projectID;", array("projectID"=>$projectID));
         }
 
         public function getUnfeaturedImages($projectID) {
@@ -135,8 +210,10 @@
                                     AND i.featured IS NULL', 
                                 array("projectID"=>$projectID), PDO::FETCH_ASSOC);
         }   
+
+
         
-	} 
+    } 
 
     $db = new Database;
 

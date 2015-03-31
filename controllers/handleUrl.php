@@ -2,8 +2,9 @@
 		
 		function handleURL($url) {
 			global $db;
+			global $_SESSION;
 
-			$content = '<section class="title">';
+			$content = '<section class="title animated fadeIn">';
 
 			/* ***************************************
 			 * Clean up spaces and capital letters
@@ -54,28 +55,26 @@
 			        	$about_me = $db->getAboutMe();
 
 			        	// Generate content
-			        	$content .= '<div class="pure-u-1-2">
-				        				<form id="contact" name="contact" onsubmit="sendMail();" action="htmlspecialchars($_SERVER["PHP_SELF"]);" method="post" class="pure-form pure-form-aligned">
-										   <fieldset>
-										      <div class="pure-control-group">
-										         <label>Name:</label>
-										         <input type="text" name="name" placeholder="Name" required>
-										      </div>
-										      <div class="pure-control-group">
-										         <label>Email</label>
-										         <input type="email" name="email" placeholder="Email" required>
-										      </div>
-										      <div class="pure-control-group">
-										         <label>Message:</label>
-										         <textarea name="message" placeholder="Your message here..." required></textarea>
-										      </div>
-										      <div class="pure-controls">
-										         <input type="submit" class="pure-button pure-button-primary" name="submit" value="Submit" />
-										         <input type="reset" class="pure-button" name="reset" value="Reset" /> 
-										      </div>
-										   </fieldset>
-										</form>
-									</div>';
+			        	$content .= '<form id="contact" name="contact" onsubmit="sendMail();" action="htmlspecialchars($_SERVER["PHP_SELF"]);" method="post" class="pure-form pure-form-aligned">
+									   <fieldset>
+									      <div class="pure-control-group">
+									         <label>Name:</label>
+									         <input type="text" name="name" placeholder="Name" required>
+									      </div>
+									      <div class="pure-control-group">
+									         <label>Email</label>
+									         <input type="email" name="email" placeholder="Email" required>
+									      </div>
+									      <div class="pure-control-group">
+									         <label>Message:</label>
+									         <textarea name="message" placeholder="Your message here..." rows="4" required></textarea>
+									      </div>
+									      <div class="pure-controls">
+									         <input type="submit" class="pure-button pure-button-primary" name="submit" value="Submit" />
+									         <input type="reset" class="pure-button" name="reset" value="Reset" /> 
+									      </div>
+									   </fieldset>
+									</form>';
 
 		        		// $phone_clean = preg_replace("/[^0-9]/", "", $phone);
 		        		// $content .= '<div class="pure-u-1-2"><p><b>Tyler Harris</b>
@@ -127,6 +126,35 @@
 		       			$content .= '<div class="gap"></div><div class="gap"></div></div>';
 		       			
 		       			break;
+
+		       	case 'login':
+		       		if ($_SESSION['loggedIn'] == 'yes') {
+		       			header("Location: /?action=a&url=admin");
+		       			exit();
+
+		       		} else {
+		       			$content .= '<h1>Administration</h1>
+		       				<form class="pure-form pure-form-stacked" onsubmit="return login();" action="controllers/login.php" method="post" >
+							    <fieldset>
+							        <h2>Login</h2>
+
+							        <label for="user">User</label>
+							        <input id="user" name="user" type="text" placeholder="User" required>
+
+							        <label for="password">Password</label>
+							        <input id="password" name="password" type="password" placeholder="Password" required>
+
+							        <label for="remember" class="pure-checkbox">
+							            <input id="remember" type="checkbox"> Remember me
+							        </label>
+
+							        <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+							    </fieldset>
+							</form>';
+
+		       		};
+
+		       		break;
 
 		       	/* ***************************************
 				 * 404 - Page Not Found

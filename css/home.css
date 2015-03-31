@@ -169,6 +169,37 @@ img {
   margin-right:auto;
 }
 
+/* Buttons */
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+/* ADMIN page */
+.dropzone {
+  margin-bottom: 10px;
+}
+
 /* Flex box progressive enhancements: */
 .portfolio{
   display: -webkit-flex;
@@ -189,6 +220,12 @@ img {
     width: 49%;
   }
 }
+@media all and (max-width: 540px){
+  .portfolio .mix,
+  .portfolio .gap{
+    width: 98%;
+  }
+}
 
 /* Fix brand-title */
 @media all and (max-width: 840px){
@@ -202,3 +239,9 @@ img {
   }
 }
 
+body {
+    height: 100vh;
+}
+body {
+    min-height: 100vh;
+}

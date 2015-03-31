@@ -25,26 +25,6 @@ function validate() {
     return (validateName(name) && validateEmail(email) && validateMessage(message));
 };
 
-function spinner(action, target) {
-
-    if(action == 'start') {
-        var spinIt = new Spinner({
-            lines: 9,
-            length: 0,
-            width: 12,
-            radius: 26,
-            corners: 1.0,
-            rotate: 0,
-            trail: 48,
-            speed: 0.9,
-            direction: 1
-        }).spin(target);
-    } else if(action == 'stop') {
-        spinIt.stop();
-    };
-    
-};
-
 function sendMail() {
     // Prevent the page from refreshing onSubmit
     event.preventDefault();
@@ -84,3 +64,4 @@ function sendMail() {
     };
 
 };
+

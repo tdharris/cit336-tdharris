@@ -1,18 +1,14 @@
-
 <?php 
+  
+if(!isset($_SESSION)){
+  session_start();
+};
 
     // Include all the database models to be used by this main Controller
     include 'controllers/navbar.php';
     include 'controllers/handleUrl.php';
     include 'controllers/project.php';
-
-/* ***************************************
- * Create or access the session
- * **************************************/
-  // TODO: session_start(): Cannot send session cache limiter - headers already sent...
-  // if(!isset($_SESSION)){
-  //   session_start();
-  // }
+    include 'controllers/handleAdminUrl.php';
 
 /* ***************************************
  * Bring the model into scope
@@ -49,8 +45,23 @@
       }
       break;
 
-    case 'p':
-      // hmm..
+    case 'a':
+      if ($_SESSION['loggedIn'] != 'yes') {
+        $content = '<section class="title animated fadeIn"><h1>Admin</h1>
+              <p>You don\'t have access to this section!</p>';
+
+      } else {
+          if(isset($_GET['url'])) {
+          $url = $_GET['url'];
+          $content = handleAdmin($url);
+        }
+      }
+      
+      // TODO: Admin section (only authenticated admins can administer content)
+      // Below cases work to add/remove projects to my portfolio!
+        // $db->deleteProject($db->getProject('test')->projectID);
+        // $db->addProject('test', 'bash', 'http://test', 'this is only a test of addProject()', 'long description here....', ['qninja-logo.png', 'qninja.png', 'qninja-2.png']);
+      
       break;
   }
 
