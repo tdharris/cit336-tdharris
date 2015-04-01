@@ -53,7 +53,6 @@ $(function(){
 					if(! myDropzone.getQueuedFiles().length > 0) {
 						toastr.warning('Please select an image.', 'Warning');
 					} else {
-						// var projectName = document.querySelectorAll("#addProject input[name=projectName]");
 						spinner.spin(addForm);
 						myDropzone.processQueue();
 					}
@@ -74,7 +73,6 @@ $(function(){
 		            dataType: 'json',
 		            success: function(response) {
 		            	updateSelects("add", projectName);
-		            	// $('#deleteProject select').append($(document.createElement("option")).text(projectName).prop('selected', true));
 		            	myDropzone.removeAllFiles();
 		            	addForm.reset.click();
 		            	spinner.stop();
@@ -92,10 +90,7 @@ $(function(){
 
 			// Setup the observer for the button.
 			document.querySelector("#addProject input[name=reset]").addEventListener("click", function() {
-				// Using "_this" here, because "this" doesn't point to the dropzone anymore
 				myDropzone.removeAllFiles();
-				// If you want to cancel uploads as well, you
-				// could also call _this.removeAllFiles(true);
 			});
 
 	    }
@@ -138,14 +133,6 @@ $(function(){
         });
 	});
 
-	// function deleteProject() {
-		
-
-	// 	console.log('deleting...');
-	// 	console.log(this);
-	// 	console.log('done');
-	// };
-
 	$('#editProject').submit(function(event) {
 	    event.preventDefault();
 	    event.stopPropagation();
@@ -179,32 +166,6 @@ $(function(){
         });
 
 	});
-
-	// Create the get request listeners
-	
-	// console.log(projectsToEdit);
-	// for (element in projectsToEdit) {
-	// 	element.addEventListener("click", function() {
-	// 		$.post("controllers/admin/getProject.php", {
-	// 	        projectName: this.text
-	// 	    },
-	// 	    function(data, status){
-	// 	        alert("Data: " + data + "\nStatus: " + status);
-	// 	    });
-	// 	});
-	// };
-
-	// for(i = 0; i < projectsToEdit.length; i++) {
-	// 	projectsToEdit[i].addEventListener("click", function() {
-	// 		$.post("controllers/admin/getProject.php", {
-	// 	        projectName: projectsToEdit[i].text
-	// 	    },
-	// 	    function(data, status){
-	// 	        alert("Data: " + data + "\nStatus: " + status);
-	// 	    });
-	// 	});
-
-	// };
 
 	// Utility Functions
 	function checkform(form) {
