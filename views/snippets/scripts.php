@@ -10,4 +10,5 @@
 <script src="js/admin.js"></script>
 <script src="js/toastr.min.js"></script>
 <script src="js/dropzone.js"></script>
+<script src="js/getProject.js"></script>
 <script src="js/tdharris.js"></script>

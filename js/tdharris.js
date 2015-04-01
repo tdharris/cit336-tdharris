@@ -18,35 +18,6 @@ $(function(){
 	// Disabling autoDiscover, otherwise Dropzone will try to attach twice.
 	Dropzone.autoDiscover = false;   
 
-	var options = {
-		paramName: "attachments", // The name that will be used to transfer the file
-		url: "upload.php",
-		acceptedFiles: "image/*",
-		autoProcessQueue: false,
-		uploadMultiple: true,
-		parallelUploads: 100,
-		addRemoveLinks: true,
-		maxFiles: 10
-		// ,
-		// init: function() {
-			 
-		// 	var myDropzone = this;
-
-		// 	// First change the button to actually tell Dropzone to process the queue.
-		//     // this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
-		//     //   // Make sure that the form isn't actually being sent.
-		//     //   e.preventDefault();
-		//     //   e.stopPropagation();
-		//     //   myDropzone.processQueue();
-		//     // });
-
-		//     this.on("success", function(res) {
-	 //            return res;
-	 //        });
-
-	 //    }
-	};
-
 	var dz_addPics = new Dropzone("div#addPics", {
 		url: "upload.php",
 		acceptedFiles: "image/*",
@@ -102,11 +73,15 @@ $(function(){
 		            data: ($("#addProject").serialize()+'&'+$.param({ 'fileIDs': res })),
 		            dataType: 'json',
 		            success: function(response) {
-		            	$('#deleteProject select').append($(document.createElement("option")).text(projectName).prop('selected', true));
+		            	updateSelects("add", projectName);
+		            	// $('#deleteProject select').append($(document.createElement("option")).text(projectName).prop('selected', true));
+		            	myDropzone.removeAllFiles();
+		            	addForm.reset.click();
 		            	spinner.stop();
 		           		toastr.success(response, 'Success');
 		           	},
 		           	error: function(res) {
+		           		myDropzone.removeAllFiles();
 		           		spinner.stop();
 		           		console.log(res);
 		           		toastr.error(res.responseText, 'Error!');
@@ -126,13 +101,12 @@ $(function(){
 	    }
 	});
 
-	var dz_editPics = new Dropzone("div#editPics", options);
-
 	$('#deleteProject').submit(function(event) {
 	    event.preventDefault();
 	    event.stopPropagation();
 	    var deleteForm = document.getElementById("deleteProject");
-	    var projectName = $('#deleteProject select :selected');
+	    // var projectName = $('#deleteProject select :selected');
+	    var projectName = $('#deleteProject select :selected').val();
 
 	    var spinner = new Spinner({
             lines: 9,
@@ -152,7 +126,8 @@ $(function(){
             data: $(this).serialize(),
             dataType: 'json',
             success: function(response) {
-            	projectName.remove();
+            	// projectName.remove();
+            	updateSelects("remove", projectName);
             	spinner.stop();
            		toastr.success(response, 'Success');
            	},
@@ -171,7 +146,63 @@ $(function(){
 	// 	console.log('done');
 	// };
 
-	// function editProject() {
+	$('#editProject').submit(function(event) {
+	    event.preventDefault();
+	    event.stopPropagation();
+	    var editForm = document.getElementById("#editProject");
+
+	    var spinner = new Spinner({
+            lines: 9,
+            length: 0,
+            width: 12,
+            radius: 26,
+            corners: 1.0,
+            rotate: 0,
+            trail: 48,
+            speed: 0.9,
+            direction: 1
+        }).spin(editForm);
+
+        $.ajax({
+            type: 'POST',
+            url: 'controllers/admin/editProject.php',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function(response) {
+            	spinner.stop();
+           		toastr.success(response, 'Success');
+           	},
+           	error: function(res) {
+           		spinner.stop();
+           		toastr.error(res.responseText, 'Error!');
+           	}
+        });
+
+	});
+
+	// Create the get request listeners
+	
+	// console.log(projectsToEdit);
+	// for (element in projectsToEdit) {
+	// 	element.addEventListener("click", function() {
+	// 		$.post("controllers/admin/getProject.php", {
+	// 	        projectName: this.text
+	// 	    },
+	// 	    function(data, status){
+	// 	        alert("Data: " + data + "\nStatus: " + status);
+	// 	    });
+	// 	});
+	// };
+
+	// for(i = 0; i < projectsToEdit.length; i++) {
+	// 	projectsToEdit[i].addEventListener("click", function() {
+	// 		$.post("controllers/admin/getProject.php", {
+	// 	        projectName: projectsToEdit[i].text
+	// 	    },
+	// 	    function(data, status){
+	// 	        alert("Data: " + data + "\nStatus: " + status);
+	// 	    });
+	// 	});
 
 	// };
 
@@ -190,5 +221,31 @@ $(function(){
 	        }
 	    }
 	    return true;
+	};
+
+	function updateSelects(action, projectName) {
+		var selects = $("select[name=projectName]");
+
+		if(action === "add") {
+			$.each(selects, function(index, item) {
+				// add to top of select lists & select it
+				var newOptEl = document.createElement("OPTION");
+				newOptEl.text = projectName;
+				item.appendChild(newOptEl);
+				item.value = projectName;
+			});
+
+		} else if (action === "remove") {
+			// remove <option>projectName</option> from array of selects
+			$.each(selects, function(index, item) {
+				var options = $(item).find("option");
+
+				$.each(options, function(index, item) {
+					if(item.innerText == projectName) item.remove();
+				});
+
+			});
+
+		};
 	};
 });

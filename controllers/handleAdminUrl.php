@@ -92,21 +92,21 @@
 
 								    <div class="pure-u-1">
 								    	<section><h2>Edit Project</h2>
-											<form id="editProject" name="editProject" onsubmit="editProject();" class="pure-form pure-form-stacked">
+											<form id="editProject" name="editProject" class="pure-form pure-form-stacked">
 											   <fieldset>
 											      <div class="pure-control-group">
 											         <label>Project Name:</label>
-											         <select class="pure-u-1" id="category" name="category" required>
+											         <select class="pure-u-1" id="projectName" name="projectName" onchange="getProject.call(this);" required>
 											         	'.$projectsAsOptions.'
 											         </select>
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Github URL:</label>
-											         <input class="pure-u-1" type="text" name="githubURL" placeholder="URL" required>
+											         <input disabled class="pure-u-1" type="text" name="githubURL" placeholder="URL" required>
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Category</label>
-											         <select id="category" name="category" required>
+											         <select disabled id="category" name="category" required>
 									                    <option>WebDev</option>
 									                    <option>Bash</option>
 									                    <option>Java</option>
@@ -114,15 +114,11 @@
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Brief Desc:</label>
-											         <input class="pure-u-1" type="text" name="brief" placeholder="Brief Description" required>
+											         <input disabled class="pure-u-1" type="text" name="brief" placeholder="Brief Description" required>
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Description:</label>
-											         <textarea class="pure-u-1" name="description" placeholder="Detailed description..." rows="4" required></textarea>
-											      </div>
-											      <div class="pure-control-group">
-											         <label>Pictures:</label>
-											         <div class="dropzone" id="editPics"></div>
+											         <textarea disabled class="pure-u-1" name="description" placeholder="Detailed description..." rows="4" required></textarea>
 											      </div>
 											      <div class="pure-controls">
 											         <input type="submit" class="pure-button pure-button-primary" name="submit" value="Save" />

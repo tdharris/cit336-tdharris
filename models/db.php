@@ -142,8 +142,8 @@
                 $this->query("INSERT INTO projects 
                                 (projectName, category, githubURL, brief, description) VALUES 
                                 (:projectName, :category, :githubURL, :brief, :description);",
-                                array("projectName"=>$projectName, "category"=>$category, "githubURL"=>$githubURL,
-                                    "brief"=>$brief, "description"=>$description));
+                                array("projectName"=>$this->mysql_escape_mimic($projectName), "category"=>$this->mysql_escape_mimic($category), "githubURL"=>$this->mysql_escape_mimic($githubURL),
+                                    "brief"=>$this->mysql_escape_mimic($brief), "description"=>$this->mysql_escape_mimic($description)));
                 
                 // get projectID
                 $projectID = $this->getProject($projectName)->projectID;
@@ -161,12 +161,22 @@
             if(isset($projectID)) {
                 $this->deleteImagesByProject($projectID);
                 $this->query("DELETE FROM projects
-                                WHERE projectID = :projectID;", array("projectID"=>$projectID));
+                                WHERE projectID = :projectID;", array("projectID"=>$this->mysql_escape_mimic($projectID)));
             }
         }
 
+        public function editProject($projectID, $category, $githubURL, $brief, $description) {
+            if(isset($projectID, $category, $githubURL, $brief, $description)) {
+                $this->query("UPDATE projects
+                                SET category = :category, githubURL = :githubURL, brief = :brief, description = :description
+                                WHERE projectID = :projectID;", array("projectID"=>$this->mysql_escape_mimic($projectID), "category"=>$this->mysql_escape_mimic($category), "githubURL"=>$this->mysql_escape_mimic($githubURL),
+                                    "brief"=>$this->mysql_escape_mimic($brief), "description"=>$this->mysql_escape_mimic($description)));
+            }
+
+        }
+
         public function getProject($projectName) {
-            return $this->query('SELECT * FROM projects WHERE projectName=\''.$projectName.'\';')[0];
+            return $this->query('SELECT * FROM projects WHERE projectName=\''.$this->mysql_escape_mimic($projectName).'\';')[0];
             // return $this->query("SELECT * FROM projects WHERE projectName = :projectName;",
                                         // array("projectName"=>$projectName))[0];
         }
@@ -180,6 +190,7 @@
          * **************************************/
         public function addImages($projectID, $images) {
             // $images = ['url', '', '']; 
+            $projectID = $this->mysql_escape_mimic($projectID);
             if (is_array($images)) {
                 // Insert first img as a featured img
                 $featuredImg = array_shift($images);
@@ -200,6 +211,7 @@
         }
 
         public function deleteImagesByProject($projectID) {
+            $projectID = $this->mysql_escape_mimic($projectID);
             if (isset($projectID)) {
                 $images = $this->query("SELECT imageID, url FROM images 
                                             WHERE projectID = :projectID", array("projectID"=>$projectID), PDO::FETCH_ASSOC);
@@ -220,6 +232,18 @@
                                     AND i.featured IS NULL', 
                                 array("projectID"=>$projectID), PDO::FETCH_ASSOC);
         }   
+
+        // Utility
+        public function mysql_escape_mimic($inp) { 
+            if(is_array($inp)) 
+                return array_map(__METHOD__, $inp); 
+
+            if(!empty($inp) && is_string($inp)) { 
+                return str_replace(array('\\', "\0", "\n", "\r", "'", '"', "\x1a"), array('\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'), $inp); 
+            } 
+
+            return $inp; 
+        } 
 
 
         

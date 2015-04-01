@@ -24,6 +24,10 @@ section {
   letter-spacing: 0.05em;
 }
 
+.btn-social {
+  line-height: 46px;
+}
+
 p { font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 li.pure-button {
@@ -94,7 +98,7 @@ button + label{
 .portfolio{
   padding: 2% 2% 0;
   text-align: justify;
-  background: #ecf0f1;
+  background: #DADFE1;
   -webkit-backface-visibility: hidden;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -123,7 +127,7 @@ button + label{
 .portfolio .mix{
   padding: 2%; 
   text-align: left;
-  background: #DADFE1;
+  background: #ffffff;
   /*border: 1px solid #E4F1FE;*/
   margin-bottom: 2%;
   display: none;
