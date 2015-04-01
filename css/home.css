@@ -19,7 +19,7 @@ section {
   max-width: 900px;
   margin: 0 auto;
   padding: 1em;
-  /*border-bottom: 1px solid #eee;*/
+  border-bottom: 1px solid #eee;
   background: #fff;
   letter-spacing: 0.05em;
 }
@@ -36,7 +36,9 @@ pre {
 }
 
 /*tdharris.net*/
-
+.dropzone {
+  border: 1px solid #ccc;
+}
 /*aboutMe*/
 .aboutMe {
   margin-top:5%;

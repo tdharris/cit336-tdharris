@@ -29,17 +29,17 @@
 
 					$content = '<a class="pure-button" href="?action=a&url=logout" style="float:right;">Logout</a><section class="title animated fadeIn"><h1>Admin</h1>';
 					$content .= '<div class="pure-g">
-								    <div class="pure-u-1 pure-u-lg-1-2">
+								    <div class="pure-u-1">
 								    	<section><h2>Add Project</h2>
 											<form id="addProject" name="addProject" class="pure-form pure-form-stacked">
 											   <fieldset>
 											      <div class="pure-control-group">
 											         <label>Project Name:</label>
-											         <input type="text" name="projectName" placeholder="Name" required>
+											         <input class="pure-u-1" type="text" name="projectName" placeholder="Name" required>
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Github URL:</label>
-											         <input type="text" name="githubURL" placeholder="URL" required>
+											         <input class="pure-u-1" type="text" name="githubURL" placeholder="URL" required>
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Category</label>
@@ -51,11 +51,11 @@
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Brief Desc:</label>
-											         <input type="text" name="brief" placeholder="Brief Description" required>
+											         <input class="pure-u-1" type="text" name="brief" placeholder="Brief Description" required>
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Description:</label>
-											         <textarea name="description" placeholder="Detailed description..." rows="4" required></textarea>
+											         <textarea class="pure-u-1" name="description" placeholder="Detailed description..." rows="4" required></textarea>
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Pictures:</label>
@@ -70,14 +70,14 @@
 										</section>
 								    </div>
 
-								    <div class="pure-u-1 pure-u-lg-1-2">
+								    <div class="pure-u-1">
 								    	<section>
 								    		<h2>Delete Project</h2>
 									    	<form id="deleteProject" name="deleteProject" class="pure-form pure-form-stacked">
 									    		<fieldset>
 											      <div class="pure-control-group">
 											         <label>Project Name:</label>
-											         <select id="projectName" name="projectName" required>
+											         <select class="pure-u-1" id="projectName" name="projectName" required>
 											         	'.$projectsAsOptions.'
 											         </select>
 											      </div>
@@ -90,19 +90,19 @@
 								    	</section>
 								    </div>
 
-								    <div class="pure-u-1 pure-u-lg-1-2">
+								    <div class="pure-u-1">
 								    	<section><h2>Edit Project</h2>
 											<form id="editProject" name="editProject" onsubmit="editProject();" class="pure-form pure-form-stacked">
 											   <fieldset>
 											      <div class="pure-control-group">
 											         <label>Project Name:</label>
-											         <select id="category" name="category" required>
+											         <select class="pure-u-1" id="category" name="category" required>
 											         	'.$projectsAsOptions.'
 											         </select>
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Github URL:</label>
-											         <input type="text" name="githubURL" placeholder="URL" required>
+											         <input class="pure-u-1" type="text" name="githubURL" placeholder="URL" required>
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Category</label>
@@ -114,11 +114,11 @@
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Brief Desc:</label>
-											         <input type="text" name="brief" placeholder="Brief Description" required>
+											         <input class="pure-u-1" type="text" name="brief" placeholder="Brief Description" required>
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Description:</label>
-											         <textarea name="description" placeholder="Detailed description..." rows="4" required></textarea>
+											         <textarea class="pure-u-1" name="description" placeholder="Detailed description..." rows="4" required></textarea>
 											      </div>
 											      <div class="pure-control-group">
 											         <label>Pictures:</label>
