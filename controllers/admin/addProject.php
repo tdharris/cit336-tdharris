@@ -16,14 +16,15 @@
 		$category = clean_input($_POST['category']);
 		$brief = clean_input($_POST['brief']);
 		$description = clean_input($_POST['description']);
+		$fileIDs = $_POST['fileIDs'];
 		// $name = clean_input($_POST['images?']);
 
-		if(empty($projectName) || empty($githubURL) || empty($category) || empty($brief) || empty($description)) {
-			sendResponse(400, 'The request cannot be fulfilled due to incomplete data or bad syntax.');
+		if(empty($projectName) || empty($githubURL) || empty($category) || empty($brief) || empty($description) || empty($fileIDs)) {
+			sendResponse(400, [$projectName, $githubURL, $category, $brief, $description, $fileIDs]);
 
 		} else {
 			try {
-				$db->addProject($projectName, 'bash', $githubURL, $brief, $description, ['qninja-logo.png', 'qninja-2.png']);
+				$db->addProject($projectName, $category, $githubURL, $brief, $description, $fileIDs);
 			} catch(PDOException $e) {
 				sendResponse(400, 'Internal Server Error!');
 			}
@@ -32,7 +33,7 @@
 			$response = 'Added Project ' . $projectName.'.';
 			sendResponse(200, $response);
 
-		}
+		};
 		
 	};
 ?>

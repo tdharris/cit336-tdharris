@@ -28,8 +28,7 @@
 					};
 
 					$content = '<a class="pure-button" href="?action=a&url=logout" style="float:right;">Logout</a><section class="title animated fadeIn"><h1>Admin</h1>';
-					$content .= '
-								<div class="pure-g">
+					$content .= '<div class="pure-g">
 								    <div class="pure-u-1 pure-u-lg-1-2">
 								    	<section><h2>Add Project</h2>
 											<form id="addProject" name="addProject" class="pure-form pure-form-stacked">

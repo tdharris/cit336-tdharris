@@ -238,10 +238,3 @@ img {
     font-size: 3em;
   }
 }
-
-body {
-    height: 100vh;
-}
-body {
-    min-height: 100vh;
-}

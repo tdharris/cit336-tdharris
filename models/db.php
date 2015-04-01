@@ -10,6 +10,7 @@
         private $user = "tdharris_admin"; 
         private $pass = "mylittlesecret"; 
         private $dbname = "tdharris_showcase";
+        private $filestore = "/img/projects/";
  
         public $db;
         private $isConnected = false;
@@ -199,8 +200,17 @@
         }
 
         public function deleteImagesByProject($projectID) {
-            if (isset($projectID)) return $this->query("DELETE FROM images
-                                                            WHERE projectID = :projectID;", array("projectID"=>$projectID));
+            if (isset($projectID)) {
+                $images = $this->query("SELECT imageID, url FROM images 
+                                            WHERE projectID = :projectID", array("projectID"=>$projectID), PDO::FETCH_ASSOC);
+                print_r($images['url']);
+                foreach($images as $img) {
+                    unlink($_SERVER['DOCUMENT_ROOT'].$this->filestore.$img['url']);
+                };
+
+                return $this->query("DELETE FROM images
+                                        WHERE projectID = :projectID;", array("projectID"=>$projectID));
+            };
         }
 
         public function getUnfeaturedImages($projectID) {
