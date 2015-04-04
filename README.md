@@ -1,15 +1,15 @@
 # tdharris.net
-A site to showcase my projects - built with PHP, HTML, CSS, JS.
+A site to showcase my projects - built with PHP, HTML, CSS, JS. No PHP Libraries were used in this project and content is dynamically generated from a MySQL database.
 <ul>
-<li>No PHP Libraries were used in this project and content is dynamically generated from a MySQL database.</li>
-<li>Created my own PHP Class to handle Database Interactions</li>
-
 <li></li>
 </ul>
+
 <h5>MySQL Database</h5>
 <ul>
-<li></li>
-<li></li>
+<li>Created my own PHP Class to handle all Database Interactions via PDO_MYSQL</li>
+<li>Queries take a SQL statement with named placeholders, an array of parameters that are used to create these named placeholders, and a fetchmode.</li>
+<li>All content in the site is generated from the DB (nav, about, portfolio, projects, etc.)</li>
+<li>Content can be managed entirely through db interractions that have been defined in the Database Class</li>
 </ul>
 
 <h5>Admin.</h5>
@@ -19,4 +19,10 @@ A site to showcase my projects - built with PHP, HTML, CSS, JS.
 <li>Passwords are randomly salted, encrypted using the Blowfish algorithm, hashed with the salt -> MySQL.</li>
 <li>Session logins to prevent from having to continually log-in</li>
 </ul>
-Final Project for CIT 336: Web Backend Development
+
+Final Project for CIT 336: Web Backend Development. Here are a few screenshots:
+
+![alt tag](http://i.imgur.com/WYHCH3O.png)
+![alt tag](http://i.imgur.com/nuyFsb7.png)
+![alt tag](http://i.imgur.com/lSmPIoH.png)
+![alt tag](http://i.imgur.com/u0bRJqZ.png)
