@@ -29,16 +29,6 @@ include 'utility.php';
 			include '../error.php';
 		};
 
-		// if($userID == "admin" && $pass == "thepearlygates") {
-		// 	$_SESSION['user'] = $user;
-		// 	$_SESSION['loggedIn'] = 'yes';
-		// 	header("Location: /?action=a&url=admin");
-		// 	exit();
-		// } else {
-		// 	// Problem with access attempt or blank user/pass
-		// 	$error_message = 'Invalid username or password.';
-		// 	include '../error.php';
-		// };
 	} 
 
 ?>
