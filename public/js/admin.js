@@ -1,25 +1,17 @@
-$(function(){
-
-    $('#Portfolio').mixItUp({
-		load: {
-			sort: 'myorder:asc'
-		}
-	});
-
-	$('.slicky').slick({
-	  dots: true,
-	  speed: 500
-	});
+/* ******************************************
+*  Admin Functions
+* ******************************************/
 
 
-	/* ******************************************
-	*  Admin Functions
-	* ******************************************/
-	// Disabling autoDiscover, otherwise Dropzone will try to attach twice.
+(function() {
+   // your page initialization code here
+   // the DOM will be available here
+
+   // Disabling autoDiscover, otherwise Dropzone will try to attach twice.
 	Dropzone.autoDiscover = false;   
 
 	var dz_addPics = new Dropzone("div#addPics", {
-		url: "upload.php",
+		url: "lib/upload.php",
 		acceptedFiles: "image/*",
 		autoProcessQueue: false,
 		uploadMultiple: true,
@@ -68,7 +60,7 @@ $(function(){
 
 		    	$.ajax({
 		            type: 'POST',
-		            url: 'controllers/admin/addProject.php',
+		            url: 'lib/controllers/admin/addProject.php',
 		            data: ($("#addProject").serialize()+'&'+$.param({ 'fileIDs': res })),
 		            dataType: 'json',
 		            success: function(response) {
@@ -117,7 +109,7 @@ $(function(){
 
         $.ajax({
             type: 'POST',
-            url: 'controllers/admin/deleteProject.php',
+            url: 'lib/controllers/admin/deleteProject.php',
             data: $(this).serialize(),
             dataType: 'json',
             success: function(response) {
@@ -152,7 +144,7 @@ $(function(){
 
         $.ajax({
             type: 'POST',
-            url: 'controllers/admin/editProject.php',
+            url: 'lib/controllers/admin/editProject.php',
             data: $(this).serialize(),
             dataType: 'json',
             success: function(response) {
@@ -209,4 +201,6 @@ $(function(){
 
 		};
 	};
-});
+
+   
+})();

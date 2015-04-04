@@ -18,10 +18,11 @@ function reArrayFiles(&$file_post) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+	require_once 'config.php';
 	include 'controllers/utility.php';
 
 	$ds          = DIRECTORY_SEPARATOR;
-	$storeFolder = 'img/projects';
+	$storeFolder = "../".$config['projectHome'];
 	 
 	if (empty($_FILES)) {
 		sendResponse(500, 'Upload directory is not writable, or does not exist.');

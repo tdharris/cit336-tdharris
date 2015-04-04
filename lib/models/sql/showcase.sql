@@ -82,14 +82,15 @@ INSERT INTO about (aboutID, email, phone, resumeURL, facebookURL, twitterURL, li
 	'https://twitter.com/tdharris',
 	'https://www.linkedin.com/in/tylerdavidharris',
 	'https://github.com/tdharris',
-	'Git, JavaScript, Node.js, HTML, CSS, MySQL, Oracle, PSQL, Bash, SuSE Linux. <br><br> Be sure to checkout <a href="http://tdharris.net/?action=q&url=portfolio">my portfolio</a>!', 'I have a variety of technical experience and a passion for learning new technologies. My resume shows my interest in web-development, particularly with Node.js. I have 3 years of professional development experience and will be graduating this April with a Bachelor of Science degree in Computer Information Technology. I’ve worked on projects in Java, JavaScript, CSS and HTML:
+	'Git, JavaScript, Node.js, HTML, CSS, MySQL, Oracle, PSQL, Bash, SuSE Linux. <br><br> Be sure to checkout <a href="http://tdharris.net/?action=q&amp;url=portfolio">my portfolio</a>!', 
+	'I have a variety of technical experience and a passion for learning new technologies. My resume shows my interest in web-development, particularly with Node.js. I have 3 years of professional development experience and will be graduating this April with a Bachelor of Science degree in Computer Information Technology. I’ve worked on projects in Java, JavaScript, CSS and HTML:
 	<ul>
 		<li>Built a full web-application with node.js and angular that provides notifications via email and text for on-call engineers.</li>
 		<li>Created a public administration tool for Novell GroupWise Mobility Service Admins, written primarily in Bash, which has been featured in a 3rd-party publication.</li>
 		<li>Author and Publisher of 250+ Technical Information Documents for Knowledge-Centered Support (KCS) and was awarded “Reaching New Heights of Knowledge” as recognition of my outstanding and exemplary performance.</li>
 		<li>Leader on my team and help them as a KCS Super User to publish Technical Information Documents and become Authors themselves.</li>
 	</ul>
-	<p>I am quick to learn new things and am interested in front-end web-development and Node.js.</p>',
+	<p>I am quick to learn new things and am interested in front-end web-development and Node.js.',
 	'<p>I love Jazz! I have been playing the saxophone since middle school and have been highly involved in the Jazz Department while in College. I consider myself to have double majored, as I have taken Major lessons every year, received Music scholarships, been the 1st chair in the leading jazz ensemble big band and jazz combo every semester, which toured the Dominican Republic, Puerto Rico and New Mexico and participated in Hamp\'s Club by winning the Jazz Improvisation Solo award at Lionel Hampton Jazz Festival. This participation in the arts genuinely helps my creativity.</p>
 	<p>In a typical jazz group the musicians first play the main melody or theme, then one or more musicians (piano, trumpet, sax, bass, etc.) take turns improvising variations based on the main melody. At the end the band returns to the original theme or melody. A jazz musician is creating art every time he or she plays and the same piece of music will sound different, even if it is played by the same musicians. You have to stay connected on the band stand with what people are communicating to you. Since this music is highly improvised, you have to stay connected and present, listening intently to all those around you, as it\'s about making music together.</p>
 	<p>"Jazz is not an assembly line of regurgitation, but a creative passionate journey of self-realization/expression where our goal is to know all people in all situations as we know ourselves." ~Anonymous</p>
@@ -117,7 +118,7 @@ INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, br
 	'Engineer’s workload management web app built with Angular, Node and Express.',
 	'<p>Engineer’s workload management web app built with AngularJS, NodeJS and ExpressJS.</p>
 	<p>Often times we would have customers with similar issues or we\'d need to send a similar email regarding follow-up. Normally, this would be done one at a time in a mail client, but qNinja allows engineers to send the same email message to various customers while still generating a separate email for each one (unique subject and recipients). It includes the necessary tags in the email to be included in the database as well, so it\'s as if a regular email was sent.</p>
-	<p>A Novell Engineer navigates to https://qNinja.lab.novell.com and follow these steps: 
+	A Novell Engineer navigates to https://qNinja.lab.novell.com and follow these steps: 
 		<ul>
 			<li>Enters credentials and selects \'Remember Me\' for HTML5 storage of credentials and signature.</li>
 			<li>Selects Refresh to pull in data regarding their Service Requests populated in the bottom panel.</li>
@@ -125,8 +126,8 @@ INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, br
 			<li>Create the Content and Signature of the email. <br><i>Note: Snippets can be selected and inserted from the dropdown</i></li>
 			<li>Select Preview for a dialog that displays what the email will look like.</li>
 			<li>Click Send. A notification box is displayed reporting that a request was received by the server and queued up for processing.</li>
-		</ul></p>
-	<p>The server now does these steps:
+		</ul>
+	The server now does these steps:
 		<ul>
 			<li>The server receives the request to send emails, and queues it up for the taskHandler.</li>
 			<li>The taskHandler will process 3 of these requests at a time as to not overload the Mail Transport (async library).</li>
@@ -135,8 +136,7 @@ INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, br
 			<li>The result of this send (code response of the SMTP server) is appended to the task\'s report.</li>
 			<li>This process is then repeated for all email items that were in the request.</li>
 			<li>Then a report is emailed to the Novell User detailing the results.</li>
-		</ul>
-	</p>');
+		</ul>');
 
 INSERT INTO images (projectID, featured, url) VALUES
 (2, '','qninja-logo.png');
@@ -247,7 +247,7 @@ INSERT INTO images (projectID, url) VALUES
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
 (10, 5, 'elephant', 'java','https://github.com/tdharris/elephant',
 	'Java server and client (Android mobile application) demonstration.',
-	'<p>Java based server and mobile application development. Experimenting with several technologies and methodologies:<ul>
+	'Java based server and mobile application development. Experimenting with several technologies and methodologies:<ul>
 			<li>Java Collections</li>
 			<li>Java Beans</li>
 			<li>Hibernate</li>
@@ -259,16 +259,16 @@ INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, br
 			<li>Android UI</li>
 			<li>Parallel Processing</li>
 			<li>Modern Software Designs</li>
-			<li>Model View</li> Controller</li>
-		</ul></p>
-		<p>Our steps were to:
+			<li>Model View Controller</li>
+		</ul>
+		Our steps were to:
 		<ol>
 			<li>"Play" with the technology</li>
 			<li>Think</li>
 			<li>Design</li>
 			<li>Create Tests</li>
 			<li>Create Solution</li>
-		</ol></p>');
+		</ol>');
 INSERT INTO images (projectID, featured, url) VALUES
 (10, '','elephant-1.png');
 INSERT INTO images (projectID, url) VALUES

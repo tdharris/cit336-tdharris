@@ -3,6 +3,7 @@
 		function handleURL($url) {
 			global $db;
 			global $_SESSION;
+			require 'lib/config.php';
 
 			$content = '<section class="title animated fadeIn">';
 
@@ -21,8 +22,8 @@
 				 * **************************************/
 		        case 'aboutme':
 		        	$content .= '<h1>About Me</h1>';
-		        	$content .= '<div class="aboutMe animated fadeIn"><a href="?action=q&amp;url=coder"><img class="coder" src="/img/coder.png" alt="coder"></a>';
-		        	$content .= '<a href="?action=q&amp;url=musician"><img class="musician" src="/img/musician.png" alt="musiciain"></a></div></section>';
+		        	$content .= '<div class="aboutMe animated fadeIn"><a href="?action=q&amp;url=coder"><img class="coder" src="'.$config['img'].'/coder.png" alt="coder"></a>';
+		        	$content .= '<a href="?action=q&amp;url=musician"><img class="musician" src="'.$config['img'].'/musician.png" alt="musiciain"></a></div>';
 		            break;
 		        case 'coder':
 		        	$content .= '<h1>&lt;coder&gt;</h1>';
@@ -40,9 +41,9 @@
 		        	$about_me = $db->getAboutMe();
 
 		        	// Generate content
-		        	$content .= '<div class="pure-u-1-4"><img class="playingSaxophone" src="/img/'.$about_me->musicPic.'" alt="playingSaxophone"></div>';
+		        	$content .= '<div class="pure-u-1-4"><img class="playingSaxophone" src="'.$config['img'].$about_me->musicPic.'" alt="playingSaxophone"></div>';
 		        	$content .= '<div class="pure-u-3-4">'.$about_me->musicianBrief.'</div>';
-		        	$content .= '<p><iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/198056205%3Fsecret_token%3Ds-uvYdv&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe></p>';
+		        	$content .= '<p><iframe id="mySoundcloud" height="166" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/198056205%3Fsecret_token%3Ds-uvYdv&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe></p>';
 
 		        	break;
 		        
@@ -55,7 +56,7 @@
 			        	$about_me = $db->getAboutMe();
 
 			        	// Generate content
-			        	$content .= '<form id="contact" name="contact" onsubmit="sendMail();" action="htmlspecialchars($_SERVER["PHP_SELF"]);" method="post" class="pure-form pure-form-aligned">
+			        	$content .= '<form id="contact" name="contact" onsubmit="sendMail();" method="post" class="pure-form pure-form-aligned">
 									   <fieldset>
 									      <div class="pure-control-group">
 									         <label>Name:</label>
@@ -87,7 +88,6 @@
 		          //   	<a href="'.$about_me->githubURL.'" target="_blank"><img src="img/github-32.png" alt="gh"></a><br>
 		          //   	</div></p></div>';
 
-		            	$content .= '</section>';
 		        		break;
 
 		       	/* ***************************************
@@ -117,13 +117,14 @@
 		       			foreach ($portfolio as $item) {
 		       				$content .= '<div class="mix '.$item->category.'" data-myorder="'.$item->sortOrder.'">'.
 		       							'<a href="?action=q&amp;project='.$item->projectName.'">'.
-		       							'<img src="img/projects/'.$item->url.'" alt="'.$item->projectName.'">'.
+		       							'<img src="'.$config['projectHome'].'/'.$item->url.'" alt="'.$item->projectName.'">'.
 		       							'<h3>'.$item->projectName.'</h3>'.
 		       							'<p>'.$item->brief.'</p>'.
 		       							'</a></div>';
 		       			};
 
-		       			$content .= '<div class="gap"></div><div class="gap"></div></div>';
+		       			$content .= '<div class="gap"></div><div class="gap"></div>';
+		       			$content .= '</div>';
 		       			
 		       			break;
 
@@ -134,7 +135,7 @@
 
 		       		} else {
 		       			$content .= '<h1>Administration</h1>
-		       				<form class="pure-form pure-form-stacked" onsubmit="return login();" action="controllers/login.php" method="post" >
+		       				<form class="pure-form pure-form-stacked" onsubmit="return login();" action="'.$config['controllers'].'login.php" method="post" >
 							    <fieldset>
 							        <h2>Login</h2>
 
@@ -163,6 +164,7 @@
 		            echo "test";
 		      }
 
+		      $content .= '</section>';
 		      return $content;
 
 		};

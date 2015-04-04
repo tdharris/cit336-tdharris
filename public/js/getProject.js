@@ -17,7 +17,7 @@ function getProject() {
 
 	$.ajax({
         type: 'POST',
-        url: 'controllers/admin/getProject.php',
+        url: 'lib/controllers/admin/getProject.php',
         data: {
 	        projectName: $(this).val()
 	    },

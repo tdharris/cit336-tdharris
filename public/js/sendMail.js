@@ -51,7 +51,7 @@ function sendMail() {
 
     } else {
 
-        $.post('sendMail.php', $('#contact').serialize(), function(data){
+        $.post('lib/sendMail.php', $('#contact').serialize(), function(data){
             toastr.success(data);
             spinner.stop();
             resetButton.click();

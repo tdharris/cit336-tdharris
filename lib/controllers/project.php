@@ -1,7 +1,9 @@
 <?php
 
 	function getProject($pj) {
+		require 'lib/config.php';
 		global $db;
+
 		$content = '<section class="title">';
 
 		// projects: projectID, sortOrder, projectName, category, brief, description, githubURL
@@ -12,10 +14,10 @@
 		$content .= '<h1>'.$project->projectName.'</h1>';
 		$content .= '<div class=\'slicky\'>';
 		foreach($images as $image) {
-			$content .= '<div><a href="img/projects/'.$image['url'].'"><img src="img/projects/'.$image['url'].'" alt="'.$image['url'].'"></a></div>';
+			$content .= '<div><a href="'.$config['projectHome'].$image['url'].'"><img src="'.$config['projectHome'].$image['url'].'" alt="'.$image['url'].'"></a></div>';
 		};
 		$content .= '</div><a href="'.$project->githubURL.'"  target="_blank">'.$project->githubURL.'</a>';
-		$content .= '<p>'.$project->description.'</p><br>';
+		$content .= '<p>'.$project->description.'<br>';
 		$content .= '</section>';
 
 		return $content;

@@ -1,15 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A showcase of projects by Tyler Harris">
 
   <title>tdharris</title>
   <?php include 'snippets/styles.php';?>
-  <?php if ($_SERVER[REQUEST_URI] == '/') {?>
-  	<link rel="stylesheet" href="css/big.css"/> 
-  	<?php };?>
 
 </head>
 <body>
@@ -40,11 +37,11 @@
 	      </div>
 	    </div>
  
-    <div class="content pure-u-1 pure-u-md-3-4">
-        <?php echo $content; ?>
-    </div>
-
-  </div>
+	    <div class="content pure-u-1 pure-u-md-3-4">
+	        <?php echo $content; ?>
+	    </div>
+	
+	</div>
 
   <?php include 'snippets/scripts.php';?>
 

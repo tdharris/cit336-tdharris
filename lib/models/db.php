@@ -10,7 +10,7 @@
         private $user = "tdharris_admin"; 
         private $pass = "mylittlesecret"; 
         private $dbname = "tdharris_showcase";
-        private $filestore = "/img/projects/";
+        private $filestore = "/public/img/projects/";
  
         public $db;
         private $isConnected = false;

@@ -5,15 +5,15 @@ if(!isset($_SESSION)){
 };
 
     // Include all the database models to be used by this main Controller
-    include 'controllers/navbar.php';
-    include 'controllers/handleUrl.php';
-    include 'controllers/project.php';
-    include 'controllers/handleAdminUrl.php';
+    include 'lib/controllers/navbar.php';
+    include 'lib/controllers/handleUrl.php';
+    include 'lib/controllers/project.php';
+    include 'lib/controllers/handleAdminUrl.php';
 
 /* ***************************************
  * Bring the model into scope
  * **************************************/
-  require('models/db.php');
+  require('lib/models/db.php');
 
 /* ***************************************
  * Build the navigation menu
@@ -48,7 +48,7 @@ if(!isset($_SESSION)){
     case 'a':
       if ($_SESSION['loggedIn'] != 'yes') {
         $content = '<section class="title animated fadeIn"><h1>Admin</h1>
-              <p>You don\'t have access to this section!</p>';
+              <p>You don\'t have access to this section!</p></section>';
 
       } else {
           if(isset($_GET['url'])) {
@@ -65,6 +65,6 @@ if(!isset($_SESSION)){
       break;
   }
 
-  include 'views/view.php';
+  include 'lib/views/view.php';
 
 ?>

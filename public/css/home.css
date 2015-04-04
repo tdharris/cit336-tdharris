@@ -24,6 +24,13 @@ section {
   letter-spacing: 0.05em;
 }
 
+#mySoundcloud {
+  width: 100%;
+  overflow-x: hidden; 
+  overflow-y: auto;
+  border: 0;
+}
+
 .btn-social {
   line-height: 46px;
 }
