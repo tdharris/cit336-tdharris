@@ -7,8 +7,8 @@
 	};	
 
 	function clean_input($data) {
-		// Strip unnecessary characters (extra space, tab, newline)
-	  	$data = trim($data);
+		// Strip replace all multiple white-spaces, tabs and new-lines
+	  	$data = preg_replace('/\s+/S', " ", $data);
 
 	  	// Remove backslashes (\) from the user input data
 		$data = stripslashes($data);

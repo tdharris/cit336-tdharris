@@ -43,7 +43,7 @@ function sendMail() {
             trail: 48,
             speed: 0.9,
             direction: 1
-        }).spin(contactForm);
+        }).spin(document.getElementsByTagName("BODY")[0]);
 
     if(!validate()) {
         toastr.error('Oops! Something is wrong, please verify your inputs.', 'Error!');

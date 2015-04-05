@@ -2,18 +2,27 @@ function getProject() {
 	// this is the HTML select object
 
 	var editForm = document.getElementById("editProject");
+    var spinMe = document.querySelectorAll("div .content")[0];
 
 	var spinner = new Spinner({
-        lines: 9,
-        length: 0,
-        width: 12,
-        radius: 26,
-        corners: 1.0,
-        rotate: 0,
-        trail: 48,
-        speed: 0.9,
-        direction: 1
-    }).spin(editForm);
+        lines: 13, // The number of lines to draw
+        length: 20, // The length of each line
+        width: 10, // The line thickness
+        radius: 30, // The radius of the inner circle
+        corners: 1, // Corner roundness (0..1)
+        rotate: 0, // The rotation offset
+        direction: 1, // 1: clockwise, -1: counterclockwise
+        color: '#000', // #rgb or #rrggbb or array of colors
+        speed: 1, // Rounds per second
+        trail: 60, // Afterglow percentage
+        shadow: false, // Whether to render a shadow
+        hwaccel: false, // Whether to use hardware acceleration
+        zIndex: 2e9, // The z-index (defaults to 2000000000)
+        top: '50%', // Top position relative to parent
+        left: '50%' // Left position relative to parent
+    }).spin(spinMe);
+
+    spinMe.classList.toggle("blur");
 
 	$.ajax({
         type: 'POST',
@@ -28,18 +37,6 @@ function getProject() {
 				brief = editForm.elements["brief"],
 				description = editForm.elements["description"];
 
-        	switch(data.category) {
-        		case 'webDev':
-        			data.category = "WebDev";
-        			break;
-        		case 'bash':
-        			data.category = "Bash";
-        			break;
-        		case 'java':
-        			data.category = "Java";
-        			break;
-        	};
-
         	githubURL.value = data.githubURL;
         	category.value = data.category;
         	brief.value = data.brief;
@@ -50,10 +47,12 @@ function getProject() {
 			brief.disabled = false;
 			description.disabled = false;
 
+            spinMe.classList.toggle("blur");
         	spinner.stop();
        	},
        	error: function(res) {
-       		spinner.stop();
+       		spinMe.classList.toggle("blur");
+            spinner.stop();
        		toastr.error(res.responseText, 'Error!');
        	}
     });

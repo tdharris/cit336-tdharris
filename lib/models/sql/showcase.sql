@@ -99,7 +99,7 @@ INSERT INTO about (aboutID, email, phone, resumeURL, facebookURL, twitterURL, li
 
 -- Project: qNotify
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(1, 2, 'qNotify', 'webDev','https://github.com/tdharris/qNotify',
+(1, 2, 'qNotify', 'Web-Dev','https://github.com/tdharris/qNotify',
 	'Text/email notification web app built with Node.js and Express.js for on-call engineers.',
 	'<p>qNotify is a single-page app (SPA) permitting Novell engineers to sign-in and receive qmon texts and email notifications for their appropriate queues.</p><p>qNotify is a web-application that is built on Node.js, which is a platform built on Chrome\'s JavaScript runtime for building fast, scalable network applications. I used nodejs and a module called Express.js (MEAN stack) instead of apache, tomcat (LAMP stack).</p>');
 
@@ -114,7 +114,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: qNinja
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(2, 1, 'qNinja', 'webDev','https://github.com/tdharris/qNinja',
+(2, 1, 'qNinja', 'Web-Dev','https://github.com/tdharris/qNinja',
 	'Engineer’s workload management web app built with Angular, Node and Express.',
 	'<p>Engineer’s workload management web app built with AngularJS, NodeJS and ExpressJS.</p>
 	<p>Often times we would have customers with similar issues or we\'d need to send a similar email regarding follow-up. Normally, this would be done one at a time in a mail client, but qNinja allows engineers to send the same email message to various customers while still generating a separate email for each one (unique subject and recipients). It includes the necessary tags in the email to be included in the database as well, so it\'s as if a regular email was sent.</p>
@@ -151,7 +151,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: dsapp
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(3, 9, 'dsapp.sh', 'bash','https://github.com/tdharris/dsapp',
+(3, 9, 'dsapp.sh', 'Bash','https://github.com/tdharris/dsapp',
 	'A server-side tool aimed to help troubleshoot and solve common issues with Novell GroupWise Mobility Service.',
 	'<p>qNotify is a single-page app (SPA) permitting Novell engineers to sign-in and receive qmon texts and email notifications for their appropriate queues.</p><p>qNotify is a web-application that is built on Node.js, which is a platform built on Chrome\'s JavaScript runtime for building fast, scalable network applications. I used nodejs and a module called Express.js (MEAN stack) instead of apache, tomcat (LAMP stack).</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -175,7 +175,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: certs.sh
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(4, 11, 'certs.sh', 'bash','https://github.com/tdharris/bashScripts/blob/master/certs/certs.sh',
+(4, 11, 'certs.sh', 'Bash','https://github.com/tdharris/bashScripts/blob/master/certs/certs.sh',
 	'Utility for SSL Certificate creation, signing and verification.',
 	'<p>Utility for SSL Certificate creation, signing and verification.</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -185,7 +185,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: nftp.sh
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(5, 12, 'nftp.sh', 'bash','https://github.com/tdharris/bashScripts/blob/master/nftp/nftp.sh',
+(5, 12, 'nftp.sh', 'Bash','https://github.com/tdharris/bashScripts/blob/master/nftp/nftp.sh',
 	'Sync a local directory with FTP.',
 	'<p>Sync a local directory with FTP.</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -195,7 +195,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: qDash
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(6, 3, 'qDash', 'webDev','',
+(6, 3, 'qDash', 'Web-Dev','',
 	'An Engineer\'s Dashboard. Panels for queues, stats, and links for launching SSH, VNC, RDP and Web Console.',
 	'<p>An Engineer\'s Dashboard. Bootstrap-styled sites containing panels for queues, stats, and links for launching SSH, VNC, RDP and Web Console sessions to test environments.</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -207,7 +207,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: myNovellApp
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(7, 4, 'myNovellApp', 'webDev','https://github.com/tdharris/myNovellApp.git',
+(7, 4, 'myNovellApp', 'Web-Dev','https://github.com/tdharris/myNovellApp.git',
 	'My launcher page for qNotify, qNinja, qDash (Node.js wrapper app).',
 	'<p>My launcher page for qNotify, qNinja, qDash (Node.js wrapper app).</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -217,7 +217,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: nts-directoryMigration.sh
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(8, 10, 'nts-directoryMigration.sh', 'bash','https://github.com/tdharris/bashScripts/tree/master/nts-directoryMigration.sh',
+(8, 10, 'nts-directoryMigration.sh', 'Bash','https://github.com/tdharris/bashScripts/tree/master/nts-directoryMigration.sh',
 	'Created for Novell Filr to help facilitate multi-directional migrations between eDirectory and AD.',
 	'<p>NTS Directory Services Migration Utility Created to help facilitate migrations from AD to eDirectory, eDirectory to AD. Queries LDAP server, updates necessary attributes for ALL Filr MySQL users.</p><p>This is based on CN, the user\'s name. Finds all users at specified base search and below. If LDAP returns a user that is found in MySQL based on their CN/username, it will be updated.</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -227,7 +227,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: pocketBook
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(9, 6, 'pocketBook', 'webDev','https://github.com/tdharris/pocketBook',
+(9, 6, 'pocketBook', 'Web-Dev','https://github.com/tdharris/pocketBook',
 	'Single Page App (SPA) for mobile to store receipts, pictures and tag them.',
 	'<p>Single Page Mobile App (SPA) to store receipts and pictures and tag them.</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -245,7 +245,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: elephant
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(10, 5, 'elephant', 'java','https://github.com/tdharris/elephant',
+(10, 5, 'elephant', 'Java','https://github.com/tdharris/elephant',
 	'Java server and client (Android mobile application) demonstration.',
 	'Java based server and mobile application development. Experimenting with several technologies and methodologies:<ul>
 			<li>Java Collections</li>
@@ -282,9 +282,9 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: tdharris.net
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(11, 7, 'tdharris.net', 'webDev','https://github.com/tdharris/cit336-tdharris',
-	'This showcase website built with PHP, HTML, CSS.',
-	'<p>A Showcase website built with PHP, HTML, CSS. Final Project for CIT 336: Web Backend Development</p>');
+(11, 7, 'tdharris.net', 'Web-Dev','https://github.com/tdharris/cit336-tdharris',
+	'A site to showcase my projects - built with PHP, HTML, CSS, JS.',
+	'A site to showcase my projects - built with PHP, HTML, CSS, JS. <br> <i>Note: No PHP Libraries were used in this project and content is dynamically generated from a MySQL database.</i> <h2>My Portfolio</h2> <ul> <li>Highlights projects that I\'ve worked on with screenshots, github links, descriptions, etc.</li> </ul> <h2>MySQL</h2> <ul> <li>Created my own PHP Class to handle all Database Interactions via PDO_MYSQL</li> <li>Queries take a SQL statement with named placeholders, an array of parameters that are used to create these named placeholders, and a fetchmode.</li> <li>All content in the site is generated from the DB (nav, about, portfolio, projects, etc.)</li> <li>Content can be managed entirely through db interractions that have been defined in the Database Class</li> </ul> <h2>Administration</h2> <ul> <li>Features an Admin Section for Content Management (Add, Edit, Delete)</li> <li>Image file upload and deletion, stored locally, fileIDs randomly generated and kept track of in MySQL</li> <li>Passwords are randomly salted, encrypted using the Blowfish algorithm, hashed with the salt -&gt; MySQL.</li> <li>Session logins to prevent from having to continually log-in</li> </ul>');
 INSERT INTO images (projectID, featured, url) VALUES
 (11, '','tdharris-logo.png');
 INSERT INTO images (projectID, url) VALUES
@@ -292,7 +292,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: tmessenger
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(12, 8, 'tmessenger', 'webDev','https://github.com/tdharris/tmessenger',
+(12, 8, 'tmessenger', 'Web-Dev','https://github.com/tdharris/tmessenger',
 	'An example web-chat application build on NodeJS and Socket.IO.',
 	'<p>An example web-chat application build on NodeJS and Socket.IO. Built for a Java class to demonstrate how many fewer lines of code were required to build the same application.</p>');
 INSERT INTO images (projectID, featured, url) VALUES
@@ -304,7 +304,7 @@ INSERT INTO images (projectID, url) VALUES
 
 -- Project: checkServices.sh
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
-(13, 13, 'checkServices.sh', 'bash','https://github.com/tdharris/bashScripts/tree/master/checkServices',
+(13, 13, 'checkServices.sh', 'Bash','https://github.com/tdharris/bashScripts/tree/master/checkServices',
 	'Alert Notification Service for Mobility Administration',
 	'<p>Alert Notification System for DataSync/Mobility Administration</p>
 	<p>Notification service if any DataSync services/connectors go offline. The script restarts the services if any are found to be in a dead/unused state and sends an email to the administrator defined in the script file. The notification email contains the following information:</p>
