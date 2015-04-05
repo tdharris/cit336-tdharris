@@ -12,7 +12,7 @@
 		$githubURL = clean_input($_POST['githubURL']);
 		$category = clean_input($_POST['category']);
 		$brief = clean_input($_POST['brief']);
-		$description = $_POST['description'];
+		$description = clean_input($_POST['description']);
 
 		if(empty($projectName) || empty($category) || empty($githubURL) || empty($brief) || empty($description)) {
 			sendResponse(400, 'The request cannot be fulfilled due to bad syntax.');

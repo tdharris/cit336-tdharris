@@ -229,7 +229,7 @@ INSERT INTO images (projectID, url) VALUES
 INSERT INTO projects (projectID, sortOrder, projectName, category, githubURL, brief, description) VALUES
 (9, 6, 'pocketBook', 'Web-Dev','https://github.com/tdharris/pocketBook',
 	'Single Page App (SPA) for mobile to store receipts, pictures and tag them.',
-	'<p>Single Page Mobile App (SPA) to store receipts and pictures and tag them.</p>');
+	'<p>Single Page Mobile App (SPA) to store receipts and pictures and tag them.</p> <ul> <li>100% JavaScript, no jQuery used</li> <li>Library, Receipt and MultiSelect created using Prototypes</li> <li>A HashMap Handler leveraged to handle all requests/behavior - keys are actions and values are functions</li> <li>Library is saved using localStorage</li> <li>Hammer.js library used to work with touch gestures</li> </ul>');
 INSERT INTO images (projectID, featured, url) VALUES
 (9, '','pocketBook-logo.png');
 INSERT INTO images (projectID, url) VALUES
