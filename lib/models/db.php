@@ -176,7 +176,10 @@
         }
 
         public function getProject($projectName) {
-            return $this->query('SELECT * FROM projects WHERE projectName=\''.$this->mysql_escape_mimic($projectName).'\';')[0];
+            $p = $this->query('SELECT * FROM projects WHERE projectName=\''.$this->mysql_escape_mimic($projectName).'\';')[0];
+            // echo $p->description;
+            $p->description = html_entity_decode($p->description);
+            return $p;
             // return $this->query("SELECT * FROM projects WHERE projectName = :projectName;",
                                         // array("projectName"=>$projectName))[0];
         }

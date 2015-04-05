@@ -32,7 +32,7 @@ section {
 }
 
 .btn-social {
-  line-height: 46px;
+  line-height: 49px;
 }
 
 p { font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
@@ -101,7 +101,12 @@ button:focus{
 button + label{
   margin-left: 1em;
 }
-
+.blur {
+    filter: url(#svgBlur);
+    opacity: .4;
+    background: -moz-element(#content);
+    background-repeat: no-repeat;
+}
 .portfolio{
   padding: 2% 2% 0;
   text-align: justify;
@@ -112,11 +117,14 @@ button + label{
   box-sizing: border-box;
 }
 
-.portfolio .mix.webDev{
-  border-top: 2px solid #16a085;
+.portfolio .mix.Web-Dev{
+  border-top: 2px solid #19B5FE;
+}
+.portfolio .mix.Java{
+  border-top: 2px solid #3FC380;
 }
 
-.portfolio .mix.bash{
+.portfolio .mix.Bash{
   border-top: 2px solid #f1c40f;
 }
 

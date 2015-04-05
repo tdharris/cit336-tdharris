@@ -44,7 +44,7 @@
 											      <div class="pure-control-group">
 											         <label>Category</label>
 											         <select id="category" name="category" required>
-									                    <option>WebDev</option>
+									                    <option>Web-Dev</option>
 									                    <option>Bash</option>
 									                    <option>Java</option>
 									                </select>
@@ -107,7 +107,7 @@
 											      <div class="pure-control-group">
 											         <label>Category</label>
 											         <select disabled id="category" name="category" required>
-									                    <option>WebDev</option>
+									                    <option>Web-Dev</option>
 									                    <option>Bash</option>
 									                    <option>Java</option>
 									                </select>

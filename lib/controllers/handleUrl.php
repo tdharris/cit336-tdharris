@@ -98,9 +98,9 @@
 									<div class="controls">
 										<label>Filter:</label>
 										<button class="filter pure-button" data-filter="all">All</button>
-										<button class="filter pure-button" data-filter=".webDev">WebDev</button>
-										<button class="filter pure-button" data-filter=".bash">Bash</button>
-										<button class="filter pure-button" data-filter=".java">Java</button>
+										<button class="filter pure-button" data-filter=".Web-Dev">WebDev</button>
+										<button class="filter pure-button" data-filter=".Bash">Bash</button>
+										<button class="filter pure-button" data-filter=".Java">Java</button>
 									</div>
 
 									<div id="Portfolio" class="portfolio">';

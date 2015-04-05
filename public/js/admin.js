@@ -9,6 +9,24 @@
 
    // Disabling autoDiscover, otherwise Dropzone will try to attach twice.
 	Dropzone.autoDiscover = false;   
+	var spinMe = document.querySelectorAll("div .content")[0];
+	var spinOptions = {
+	  lines: 13, // The number of lines to draw
+	  length: 20, // The length of each line
+	  width: 10, // The line thickness
+	  radius: 30, // The radius of the inner circle
+	  corners: 1, // Corner roundness (0..1)
+	  rotate: 0, // The rotation offset
+	  direction: 1, // 1: clockwise, -1: counterclockwise
+	  color: '#000', // #rgb or #rrggbb or array of colors
+	  speed: 1, // Rounds per second
+	  trail: 60, // Afterglow percentage
+	  shadow: false, // Whether to render a shadow
+	  hwaccel: false, // Whether to use hardware acceleration
+	  zIndex: 2e9, // The z-index (defaults to 2000000000)
+	  top: '50%', // Top position relative to parent
+	  left: '50%' // Left position relative to parent
+    };
 
 	var dz_addPics = new Dropzone("div#addPics", {
 		url: "lib/upload.php",
@@ -22,17 +40,7 @@
 			 
 			var myDropzone = this;
 			var	addForm = document.getElementById("addProject");
-			var	spinner = new Spinner({
-			    lines: 9,
-			    length: 0,
-			    width: 12,
-			    radius: 26,
-			    corners: 1.0,
-			    rotate: 0,
-			    trail: 48,
-			    speed: 0.9,
-			    direction: 1
-			});
+			var	spinner = new Spinner(spinOptions);
 
 			// First change the button to actually tell Dropzone to process the queue.
 		    $("#addProject input[type=submit]").on("click", function(e) {
@@ -40,12 +48,14 @@
 				e.preventDefault();
 				e.stopPropagation();
 
+				spinner.spin(spinMe);
+				spinMe.classList.toggle("blur");
+
 				// validate form data
 				if(checkform(addForm)) {
 					if(! myDropzone.getQueuedFiles().length > 0) {
 						toastr.warning('Please select an image.', 'Warning');
 					} else {
-						spinner.spin(addForm);
 						myDropzone.processQueue();
 					}
 				};
@@ -67,11 +77,13 @@
 		            	updateSelects("add", projectName);
 		            	myDropzone.removeAllFiles();
 		            	addForm.reset.click();
+		            	spinMe.classList.toggle("blur");
 		            	spinner.stop();
 		           		toastr.success(response, 'Success');
 		           	},
 		           	error: function(res) {
 		           		myDropzone.removeAllFiles();
+		           		spinMe.classList.toggle("blur");
 		           		spinner.stop();
 		           		console.log(res);
 		           		toastr.error(res.responseText, 'Error!');
@@ -95,17 +107,8 @@
 	    // var projectName = $('#deleteProject select :selected');
 	    var projectName = $('#deleteProject select :selected').val();
 
-	    var spinner = new Spinner({
-            lines: 9,
-            length: 0,
-            width: 12,
-            radius: 26,
-            corners: 1.0,
-            rotate: 0,
-            trail: 48,
-            speed: 0.9,
-            direction: 1
-        }).spin(deleteForm);
+	    var spinner = new Spinner(spinOptions).spin(spinMe);
+	    spinMe.classList.toggle("blur");
 
         $.ajax({
             type: 'POST',
@@ -115,10 +118,12 @@
             success: function(response) {
             	// projectName.remove();
             	updateSelects("remove", projectName);
+            	spinMe.classList.toggle("blur");
             	spinner.stop();
            		toastr.success(response, 'Success');
            	},
            	error: function(res) {
+           		spinMe.classList.toggle("blur");
            		spinner.stop();
            		toastr.error(res.responseText, 'Error!');
            	}
@@ -130,17 +135,8 @@
 	    event.stopPropagation();
 	    var editForm = document.getElementById("#editProject");
 
-	    var spinner = new Spinner({
-            lines: 9,
-            length: 0,
-            width: 12,
-            radius: 26,
-            corners: 1.0,
-            rotate: 0,
-            trail: 48,
-            speed: 0.9,
-            direction: 1
-        }).spin(editForm);
+	    var spinner = new Spinner().spin(spinMe);
+	    spinMe.classList.toggle("blur");
 
         $.ajax({
             type: 'POST',
@@ -148,10 +144,12 @@
             data: $(this).serialize(),
             dataType: 'json',
             success: function(response) {
+            	spinMe.classList.toggle("blur");
             	spinner.stop();
            		toastr.success(response, 'Success');
            	},
            	error: function(res) {
+           		spinMe.classList.toggle("blur");
            		spinner.stop();
            		toastr.error(res.responseText, 'Error!');
            	}
