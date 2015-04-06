@@ -1,22 +1,27 @@
-.sidebar {
-	width: 100% !important;
-	height: 100vh;
-}
-
-.header .pure-menu {
-  margin-top: 3em;
-  width: 20em;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#layout {
-  min-height: 100vh;
-}
-
-body {
+.sidebar
+{
+    width: 100% !important;
     height: 100vh;
 }
-body {
+
+.header .pure-menu
+{
+    width: 20em;
+    margin-top: 3em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#layout
+{
+    min-height: 100vh;
+}
+
+body
+{
+    height: 100vh;
+}
+body
+{
     min-height: 100vh;
 }
