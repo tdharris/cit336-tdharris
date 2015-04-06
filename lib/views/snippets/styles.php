@@ -2,11 +2,11 @@
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&amp;pure/0.6.0/pure-min.css&amp;pure/0.6.0/grids-responsive-min.css">
   
 <link rel="stylesheet" type="text/css" href="public/lib/animate/animate.css">
-<link rel="stylesheet" type="text/css" href="public/css/aside.css"/>
-<link rel="stylesheet" type="text/css" href="public/css/home.css"/>
+<link rel="stylesheet" type="text/css" href="public/css/aside.min.css"/>
+<link rel="stylesheet" type="text/css" href="public/css/home.min.css"/>
 
 <?php if ($_SERVER[REQUEST_URI] == '/') {?>
-  <link rel="stylesheet" type="text/css" href="public/css/big.css"/> 
+  <link rel="stylesheet" type="text/css" href="public/css/big.min.css"/> 
 <?php };?>
 
 <?php if (strpos($_SERVER[REQUEST_URI], '/?action=q&project=') !== false || $_SERVER[REQUEST_URI] == '/?action=q&url=portfolio') {?>
