@@ -3,14 +3,14 @@
 
 	<!-- Dependencies -->
 	<?php if ($_SERVER[REQUEST_URI] == '/?action=q&url=contact') {?>
-		<script type="text/javascript" src="public/js/sendMail.js"></script>
+		<script type="text/javascript" src="public/js/sendMail.min.js"></script>
 	<?php };?>
 
 	<?php if (strpos($_SERVER[REQUEST_URI], '/?action=q&project=') !== false || $_SERVER[REQUEST_URI] == '/?action=q&url=portfolio') {?>
 		<script type="text/javascript" src="public/lib/rainbow/rainbow-custom.min.js"></script>
 		<script type="text/javascript" src="public/lib/slickjs/slick.min.js"></script>
 		<script type="text/javascript" src="public/lib/mixitup/mixitup.min.js"></script>
-		<script type="text/javascript" src="public/js/tdharris.js"></script>
+		<script type="text/javascript" src="public/js/tdharris.min.js"></script>
 	<?php };?>
 
 	<?php if ($_SERVER[REQUEST_URI] == '/?action=q&url=contact' || $_SERVER[REQUEST_URI] == '/?action=a&url=admin') {?>
@@ -20,11 +20,11 @@
 
 	<?php if ($_SERVER[REQUEST_URI] == '/?action=a&url=admin') {?>
 	  <script type="text/javascript" src="public/lib/dropzone/dropzone.js"></script>
-	  <script type="text/javascript" src="public/js/admin.js"></script>
+	  <script type="text/javascript" src="public/js/admin.min.js"></script>
 	<?php };?>
 
-<script type="text/javascript" src="public/js/login.js"></script>
-<script type="text/javascript" src="public/js/getProject.js"></script>
+<script type="text/javascript" src="public/js/login.min.js"></script>
+<script type="text/javascript" src="public/js/getProject.min.js"></script>
 
 
 <!-- Google Analytics Tracking -->
