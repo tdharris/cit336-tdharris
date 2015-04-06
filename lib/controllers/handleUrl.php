@@ -56,15 +56,15 @@
 			        	$about_me = $db->getAboutMe();
 
 			        	// Generate content
-			        	$content .= '<form id="contact" name="contact" onsubmit="sendMail();" method="post" class="pure-form pure-form-aligned">
+			        	$content .= '<form id="contact" name="contact" onsubmit="sendMail();" method="post" class="pure-form pure-form-aligned" autocomplete="on">
 									   <fieldset>
 									      <div class="pure-control-group">
 									         <label>Name:</label>
-									         <input type="text" name="name" placeholder="Name" autocomplete="name" required>
+									         <input type="text" name="name" placeholder="Name" required>
 									      </div>
 									      <div class="pure-control-group">
 									         <label>Email</label>
-									         <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+									         <input type="email" name="email" placeholder="Email" required>
 									      </div>
 									      <div class="pure-control-group">
 									         <label>Message:</label>
