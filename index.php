@@ -34,6 +34,21 @@ if(!isset($_SESSION)){
 /* ***************************************
  * Determine type of request (url or project)
  * **************************************/
+// $handler = array(
+//   "q" => array(
+//     "url" => handleURL($req),
+//     "project" => getProject($req)
+//   ),
+
+//   "a" => array(
+//     "url" => handleAdmin($req)
+//   )
+// );
+
+// function handleRequest($type, $req) {
+//   $handler[$type][$req];
+// };
+
   switch($action) {
     case 'q':
       if(isset($_GET['url'])) {

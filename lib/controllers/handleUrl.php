@@ -60,11 +60,11 @@
 									   <fieldset>
 									      <div class="pure-control-group">
 									         <label>Name:</label>
-									         <input type="text" name="name" placeholder="Name" required>
+									         <input type="text" name="name" placeholder="Name" autocomplete="name" required>
 									      </div>
 									      <div class="pure-control-group">
 									         <label>Email</label>
-									         <input type="email" name="email" placeholder="Email" required>
+									         <input type="email" name="email" placeholder="Email" autocomplete="email" required>
 									      </div>
 									      <div class="pure-control-group">
 									         <label>Message:</label>
