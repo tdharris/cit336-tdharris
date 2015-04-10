@@ -72,11 +72,6 @@ if(!isset($_SESSION)){
         }
       }
       
-      // TODO: Admin section (only authenticated admins can administer content)
-      // Below cases work to add/remove projects to my portfolio!
-        // $db->deleteProject($db->getProject('test')->projectID);
-        // $db->addProject('test', 'bash', 'http://test', 'this is only a test of addProject()', 'long description here....', ['qninja-logo.png', 'qninja.png', 'qninja-2.png']);
-      
       break;
   }
 
