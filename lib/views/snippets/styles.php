@@ -1,5 +1,5 @@
 <!-- Yahoo will deliver each of the small css files in a single request by using the & symbol like below -->
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&amp;pure/0.6.0/pure-min.css&amp;pure/0.6.0/grids-responsive-min.css">
+<link rel="stylesheet" type="text/css" href="public/lib/yui/yahoo-pure.min.css">
   
 <link rel="stylesheet" type="text/css" href="public/lib/animate/animate.css">
 <link rel="stylesheet" type="text/css" href="public/css/aside.min.css"/>
@@ -24,4 +24,4 @@
 
 <!-- Custom Fonts -->
 <link href="public/css/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
